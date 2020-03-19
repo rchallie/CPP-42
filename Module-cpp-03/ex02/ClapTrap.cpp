@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 21:49:15 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/19 22:55:29 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,5 @@ void			    ClapTrap::setArmorDamageReduction(unsigned int armor_damage_reduction
 
 void _print_suffix(const std::string& name, unsigned int hp)
 {
-	std::cout << "CLAPTRAP" <<" \033[1;31m" << name << "\033[0m(\033[1;32m" << hp << "\033[0m) : ";
+	std::cout << "XXXX-TP" <<" \033[1;31m" << name << "\033[0m(\033[1;32m" << hp << "\033[0m) : ";
 }
