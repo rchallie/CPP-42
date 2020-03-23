@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 15:38:34 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/20 21:22:42 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/21 12:09:59 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@
 
 #include <typeinfo>
 
+/****
+ * 
+ * 
+ * 
+ * MODIFIER LES OPERATEUR EGALE POUR QU'ILS DONNENT 
+ * A LA COPY LES VARIABLES GETTABLE DE L'AUTRE
+ * 
+ * 
+ * */ 
 int main()
 {
 	std::cout << std::endl;
