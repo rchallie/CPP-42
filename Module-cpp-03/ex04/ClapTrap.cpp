@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 22:55:47 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:20:37 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,18 @@ ClapTrap::ClapTrap(
     std::cout << "Un nouveau ClapTrap est né !" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap&) {}
+ClapTrap::ClapTrap(const ClapTrap& op)
+{
+    srand(time(NULL));
+    *this = op;
+}
 
 ClapTrap::~ClapTrap()
 {
     std::cout << "Un ClapTrap est mort !" << std::endl;
 }
 
-ClapTrap & ClapTrap::operator=(ClapTrap& op)
+ClapTrap & ClapTrap::operator=(const ClapTrap& op)
 {
     if (this == &op)
         return (*this); 

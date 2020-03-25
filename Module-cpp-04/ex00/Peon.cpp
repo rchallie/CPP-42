@@ -24,9 +24,9 @@ Peon::Peon(const std::string & name)
 Peon::Peon(const Peon & copy)
 :
     Victim (
-        copy.getName()
+        copy
     )
-{}
+{ *this = copy; }
 
 Peon::~Peon()
 {

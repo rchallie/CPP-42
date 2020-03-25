@@ -26,7 +26,7 @@ class Victim
         Victim(const std::string & name);
         Victim(const Victim&);
         ~Victim();
-        Victim &operator=(Victim& op);
+        Victim &operator=(const Victim& op);
 
         // Getter / Setter
         std::string getName(void) const;

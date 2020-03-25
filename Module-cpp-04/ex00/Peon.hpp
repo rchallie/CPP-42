@@ -23,7 +23,7 @@ class Peon : public Victim
         Peon(const std::string & name);
         Peon(const Peon & copy);
         ~Peon();
-        Peon &operator=(Peon& op);
+        Peon &operator=(const Peon& op);
 
         // Additionnal
         void    getPolymorphed(void) const;

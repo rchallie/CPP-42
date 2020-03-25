@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 21:49:20 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:20:26 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include <cstdlib>
+// # include <cstdlib>
 # include <time.h>
 
 class ClapTrap;
@@ -50,7 +50,7 @@ class ClapTrap
         
 		ClapTrap(const ClapTrap&);              
         ~ClapTrap();
-        ClapTrap &operator=(ClapTrap& op);
+        ClapTrap &operator=(const ClapTrap& op);
 
 		unsigned int		getHitPoints(void);
 		unsigned int		getMaxHitPoints(void);

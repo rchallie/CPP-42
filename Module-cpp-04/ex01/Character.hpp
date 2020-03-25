@@ -32,7 +32,7 @@ class Character
         Character(std::string const & name);
         Character(const Character&);
         ~Character();
-        Character &operator=(Character& op);
+        Character &operator=(const Character& op);
         
         // Getter / Setter
         std::string     getName() const;

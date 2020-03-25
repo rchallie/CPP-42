@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 21:34:46 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:06:23 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "Le champion fait son apparition." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap&) {}
+ScavTrap::ScavTrap(const ScavTrap& op)
+{
+	srand(time(NULL));
+	*this = op;
+}
 
 ScavTrap::~ScavTrap()
 {

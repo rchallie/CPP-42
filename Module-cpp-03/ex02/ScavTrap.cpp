@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 21:49:30 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:14:44 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "Le champion fait son apparition." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap&) {}
+ScavTrap::ScavTrap(const ScavTrap&)
+{
+	srand(time(NULL));
+	*this = op;
+}
 
 ScavTrap::~ScavTrap()
 {
@@ -44,7 +48,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "Je suis mort? Puis-je fermer les yeux maintenant?" << std::endl;	
 }
 
-ScavTrap & ScavTrap::operator=(ScavTrap& op)
+ScavTrap & ScavTrap::operator=(const ScavTrap& op)
 {
 	if (this == &op)
 		return (*this);

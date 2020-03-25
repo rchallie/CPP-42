@@ -25,14 +25,14 @@ SuperMutant::SuperMutant()
 SuperMutant::SuperMutant(const SuperMutant & copy)
 :
     Enemy(copy)
-{}
+{ *this = copy; }
 
 SuperMutant::~SuperMutant()
 {
     std::cout << "Aaargh ..." << std::endl;
 }
 
-SuperMutant & SuperMutant::operator=(SuperMutant& op)
+SuperMutant & SuperMutant::operator=(const SuperMutant& op)
 {
     if (this == &op)
         return (*this); 

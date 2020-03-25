@@ -28,7 +28,7 @@ class SuperTrap : public FragTrap, public NinjaTrap
         SuperTrap(std::string name);            
         SuperTrap(const SuperTrap&);             
         ~SuperTrap();                         
-        SuperTrap &operator=(SuperTrap& op);
+        SuperTrap &operator=(const SuperTrap& op);
         void rangedAttack(std::string const & target);
         void meleeAttack(std::string const & target);
 };

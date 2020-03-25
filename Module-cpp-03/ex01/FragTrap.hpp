@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/18 21:27:15 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:03:44 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
+// #include <cstdlib>
 #include <time.h>
 
 class FragTrap;
@@ -43,7 +43,7 @@ class FragTrap
 		FragTrap(std::string name);
 		FragTrap(const FragTrap&);
 		~FragTrap();
-		FragTrap &operator=(FragTrap& op);
+		FragTrap &operator=(const FragTrap& op);
 		void			rangedAttack(std::string const & target);
 		void			meleeAttack(std::string const & target);
 		void			takeDamage(unsigned int amount);

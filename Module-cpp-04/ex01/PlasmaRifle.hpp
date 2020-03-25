@@ -23,7 +23,7 @@ class PlasmaRifle : public AWeapon
         PlasmaRifle();
         PlasmaRifle(const PlasmaRifle & copy);
         ~PlasmaRifle();
-        PlasmaRifle &operator=(PlasmaRifle& op);
+        PlasmaRifle &operator=(const PlasmaRifle& op);
         
         // Additionnal
         void    attack() const;

@@ -23,7 +23,7 @@ class PowerFist : public AWeapon
         PowerFist();
         PowerFist(const PowerFist & copy);
         ~PowerFist();
-        PowerFist &operator=(PowerFist& op);
+        PowerFist &operator=(const PowerFist& op);
         
         // Additionnal
         void    attack() const;

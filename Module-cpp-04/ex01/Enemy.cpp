@@ -18,11 +18,11 @@ Enemy::Enemy(int hp, std::string const & type)
     _type(type)
 {}
 
-Enemy::Enemy(const Enemy&) {}
+Enemy::Enemy(const Enemy& copy) { *this = copy; }
 
 Enemy::~Enemy() {}
 
-Enemy & Enemy::operator=(Enemy& op)
+Enemy & Enemy::operator=(const Enemy& op)
 {
     if (this == &op)
         return (*this);

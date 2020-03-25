@@ -29,7 +29,7 @@ class NinjaTrap : virtual public ClapTrap
 		NinjaTrap(std::string name);
 		NinjaTrap(const NinjaTrap&);
 		~NinjaTrap();
-		NinjaTrap &operator=(NinjaTrap& op);
+		NinjaTrap &operator=(const NinjaTrap& op);
 		void			rangedAttack(std::string const & target);
 		void			meleeAttack(std::string const & target);
 		void			ninjaShoebox(ClapTrap & claptrap);

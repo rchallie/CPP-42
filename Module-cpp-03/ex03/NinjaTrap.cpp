@@ -36,7 +36,11 @@ NinjaTrap::NinjaTrap(std::string name)
 	std::cout << "Here come the boom ! Enfin pas vraiment ... Voir pas du tout.." << std::endl;
 }
 
-NinjaTrap::NinjaTrap(const NinjaTrap&) {}
+NinjaTrap::NinjaTrap(const NinjaTrap& op)
+{
+	srand(time(NULL));
+	*this = op;
+}
 
 NinjaTrap::~NinjaTrap()
 {
@@ -44,7 +48,7 @@ NinjaTrap::~NinjaTrap()
 	std::cout << "Je suis mort? Puis-je fermer les yeux maintenant?" << std::endl;	
 }
 
-NinjaTrap & NinjaTrap::operator=(NinjaTrap& op)
+NinjaTrap & NinjaTrap::operator=(const NinjaTrap& op)
 {
 	if (this == &op)
 		return (*this);

@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 19:18:41 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:02:42 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ FragTrap::FragTrap(std::string name)
 	std::cout << "Prêt pour assassiner des représentants du syndicat des techniciens de surfaces !" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap&) {}
+FragTrap::FragTrap(const FragTrap& op) { *this = op; }
 
 FragTrap::~FragTrap()
 {

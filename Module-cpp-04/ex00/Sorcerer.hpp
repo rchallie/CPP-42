@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/21 12:17:58 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:39:18 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ class Sorcerer
         std::string _title;
     public:
         Sorcerer(const std::string & name, const std::string & title);
-        Sorcerer(const Sorcerer&);
+        Sorcerer(const Sorcerer& copy);
         ~Sorcerer();
-        Sorcerer &operator=(Sorcerer& op);
+        Sorcerer &operator=(const Sorcerer& op);
 
         // Getter / Setter
         std::string getName(void) const;

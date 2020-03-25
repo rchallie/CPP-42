@@ -6,12 +6,15 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 08:22:11 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/14 11:36:03 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 12:03:41 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/phonebook.hpp"
 
+/**
+ *  Check that is the phonebook is full. 
+ */
 static int	_full(Contact list[8])
 {
 	std::string rep;
@@ -34,6 +37,9 @@ static int	_full(Contact list[8])
     return (1);
 }
 
+/**
+ *  Add a contact to phonebook 
+ */
 static int _add(Contact list[8])
 {
     int j = 0;
@@ -65,6 +71,9 @@ static int _add(Contact list[8])
     return (0);
 }
 
+/**
+ *  Get start menu entry
+ */
 static int _start_menu()
 {
     std::string entry;
@@ -81,6 +90,9 @@ static int _start_menu()
 	return (0);
 }
 
+/**
+ *  Addapt string to index format.
+ */
 static void _print_to_format(std::string s)
 {
     if (s.size() > 10)
@@ -94,6 +106,9 @@ static void _print_to_format(std::string s)
     std::cout << s;
 }
 
+/**
+ *  Print index informations
+ */
 static int _print_infos_by_index(Contact list[8], int contact_amount)
 {
     std::string entry;
@@ -109,6 +124,9 @@ static int _print_infos_by_index(Contact list[8], int contact_amount)
     return (1);
 }
 
+/**
+ *  Expose contact in phonebook and ask for index of contact needed
+ */
 static int _search(Contact list[8])
 {
     std::cout << "     index|first name| last name|    pseudo" << std::endl;
@@ -136,12 +154,18 @@ static int _search(Contact list[8])
     return (0);
 }
 
+/**
+ * Leave
+ */
 static void _end()
 {
     std::cout << "Bye bye !" << std::endl;
     exit(0);
 }
 
+/**
+ *  Print title
+ */
 static void	title(void)
 {
 	std::cout << std::endl;
@@ -156,6 +180,9 @@ static void	title(void)
 	std::cout << " - ADD \n - SEARCH \n - EXIT \n" << std::endl;
 }
 
+/**
+ * What a phonebook
+ */
 int main()
 {
     int actual_state;

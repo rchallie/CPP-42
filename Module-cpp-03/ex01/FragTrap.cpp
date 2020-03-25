@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 19:17:59 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:04:12 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ FragTrap::FragTrap(std::string name)
 	std::cout << "Prêt pour assassiner des représentants du syndicat des techniciens de surfaces !" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap&) {}
+FragTrap::FragTrap(const FragTrap& op) { *this = op; }
 
 FragTrap::~FragTrap()
 {
@@ -50,7 +50,7 @@ FragTrap::~FragTrap()
 	std::cout << "Je suis mort, je suis mort. Oh mon dieu, je suis mort." << std::endl;
 }
 
-FragTrap & FragTrap::operator=(FragTrap& op)
+FragTrap & FragTrap::operator=(const FragTrap& op)
 {
 	if (this == &op)
 		return (*this);

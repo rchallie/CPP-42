@@ -29,7 +29,7 @@ class AWeapon
         AWeapon(std::string const & name, int apcost, int damage);
         AWeapon(const AWeapon&);
         ~AWeapon();
-        AWeapon &operator=(AWeapon& op);
+        AWeapon &operator=(const AWeapon& op);
 
         // Getter / Setter
         std::string         getName() const;

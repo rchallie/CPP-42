@@ -23,7 +23,7 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed& copy)
 {
     std::cout << "Copy constructor called" << std::endl;
-    this->operator=(copy);
+    *this = copy;
 }
 
 Fixed::Fixed(const int integer)

@@ -26,11 +26,11 @@ PowerFist::PowerFist(const PowerFist & copy)
     AWeapon(
         copy
     )
-{}
+{ *this = copy; }
 
 PowerFist::~PowerFist() {}
 
-PowerFist & PowerFist::operator=(PowerFist& op)
+PowerFist & PowerFist::operator=(const PowerFist& op)
 {
     if (this == &op)
         return (*this);

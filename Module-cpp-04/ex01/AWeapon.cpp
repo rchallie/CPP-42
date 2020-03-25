@@ -19,11 +19,11 @@ AWeapon::AWeapon(std::string const & name, int apcost, int damage)
     _damage(damage)
 {}
 
-AWeapon::AWeapon(const AWeapon&) {}
+AWeapon::AWeapon(const AWeapon& copy) { *this = copy; }
 
 AWeapon::~AWeapon() {}
 
-AWeapon & AWeapon::operator=(AWeapon& op)
+AWeapon & AWeapon::operator=(const AWeapon& op)
 {
     if (this == &op)
         return (*this);

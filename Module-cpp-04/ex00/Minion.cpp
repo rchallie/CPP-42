@@ -24,16 +24,16 @@ Minion::Minion(const std::string & name)
 Minion::Minion(const Minion & copy)
 :
     Victim (
-        copy.getName()
+        copy
     )
-{}
+{ *this = copy; }
 
 Minion::~Minion()
 {
     std::cout << "Je délivre quelques PO..." << std::endl;
 }
 
-Minion & Minion::operator=(Minion& op)
+Minion & Minion::operator=(const Minion& op)
 {
     if (this == &op)
         return (*this); 

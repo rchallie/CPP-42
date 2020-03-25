@@ -40,9 +40,9 @@ SuperTrap::SuperTrap(std::string name)
     std::cout << "Super Trap created" << std::endl;
 }
 
-SuperTrap::SuperTrap(const SuperTrap&) {}
+SuperTrap::SuperTrap(const SuperTrap& op) { *this = op; }
 SuperTrap::~SuperTrap() {}
-SuperTrap & SuperTrap::operator=(SuperTrap& op)
+SuperTrap & SuperTrap::operator=(const SuperTrap& op)
 {
     if (this == &op)
         return (*this); 

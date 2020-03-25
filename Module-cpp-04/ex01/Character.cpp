@@ -18,9 +18,9 @@ Character::Character(std::string const & name)
     _ap(40)
 {}
 
-Character::Character(const Character&) {}
+Character::Character(const Character& copy) { *this = copy; }
 Character::~Character() {}
-Character & Character::operator=(Character& op)
+Character & Character::operator=(const Character& op)
 {
     if (this == &op)
         return (*this);

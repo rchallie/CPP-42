@@ -23,7 +23,7 @@ class RadScorpion : public Enemy
         RadScorpion();
         RadScorpion(const RadScorpion&);
         ~RadScorpion();
-        RadScorpion &operator=(RadScorpion& op);
+        RadScorpion &operator=(const RadScorpion& op);
 };
 
 #endif

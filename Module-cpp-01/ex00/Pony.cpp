@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:00:53 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/18 19:06:32 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 12:11:21 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,40 @@
 
 Pony::Pony() {}
 
-Pony::Pony(std::string name, std::string color,
-			std::string favorite_food, std::string owner,
-			std::string size, std::string weight)
-{
-    this->name = name;
-    this->color = color;
-    this->favorite_food = favorite_food;
-    this->owner = owner;
-    this->size = size;
-    this->weight = weight;
-}
+Pony::Pony( std::string name,
+            std::string color,
+			std::string favorite_food,
+            std::string owner,
+			std::string size,
+            std::string weight)
+:
+    _name(name),
+    _color(color),
+    _favorite_food(favorite_food),
+    _owner(owner),
+    _size(size),
+    _weight(weight)
+{}
 
 Pony::~Pony() {}
 
-void Pony::set_Name(std::string name) {this->name = name;}
-void Pony::set_Color(std::string color) {this->color = color;}
-void Pony::set_Favorite_Food(std::string favorite_food) {this->favorite_food = favorite_food;}
-void Pony::set_Owner(std::string owner) {this->owner = owner;}
-void Pony::set_Size(std::string size) {this->size = size;}
-void Pony::set_Weight(std::string weight) {this->weight = weight;}
+// GETTER - SETTER =============================================================
+std::string Pony::get_Color()                           { return (this->_color);}
+std::string Pony::get_Name()                            { return (this->_name);}
+std::string Pony::get_Favorite_Food()                   { return (this->_favorite_food);}
+std::string Pony::get_Owner()                           { return (this->_owner);}
+std::string Pony::get_Size()                            { return (this->_size);}
+std::string Pony::get_Weight()                          { return (this->_weight);}
+
+void Pony::set_Name(std::string name)                   {this->_name = name;}
+void Pony::set_Color(std::string color)                 {this->_color = color;}
+void Pony::set_Favorite_Food(std::string favorite_food) {this->_favorite_food = favorite_food;}
+void Pony::set_Owner(std::string owner)                 {this->_owner = owner;}
+void Pony::set_Size(std::string size)                   {this->_size = size;}
+void Pony::set_Weight(std::string weight)               {this->_weight = weight;}
+// =============================================================================
+
+// ADDITIONNAL =================================================================
 void Pony::speech()
 {
     std::cout << "[" << get_Name() << "] : ";
@@ -43,14 +57,9 @@ void Pony::speech()
     std::cout << "I'm " << get_Size() << " and ";
     std::cout << "my weight is " << get_Weight() << "kg" << std::endl;
 }
+// =============================================================================
 
-std::string Pony::get_Color() { return (this->color);}
-std::string Pony::get_Name() { return (this->name);}
-std::string Pony::get_Favorite_Food() { return (this->favorite_food);}
-std::string Pony::get_Owner() { return (this->owner);}
-std::string Pony::get_Size() { return (this->size);}
-std::string Pony::get_Weight() { return (this->weight);}
-
+// FUNCTIONS SUP ===============================================================
 void    poneyOnTheStack() 
 {
     Pony poney_stack("Sucre d'orge", "Yellow", "Apple", "Romain C.", "Cute", "125");
@@ -63,3 +72,4 @@ void    poneyOnTheHeap()
     pony_heap->speech();
     delete pony_heap;
 }
+// =============================================================================

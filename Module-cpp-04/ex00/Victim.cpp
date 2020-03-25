@@ -19,14 +19,14 @@ Victim::Victim(const std::string & name)
     std::cout << "A random victim called " << name << " just appeared; " << std::endl;
 }
 
-Victim::Victim(const Victim&) {}
+Victim::Victim(const Victim& copy) { *this = copy; }
 
 Victim::~Victim()
 {
     std::cout << "The victim " << this->_name << " died for no apparent reasons!" << std::endl;
 }
 
-Victim & Victim::operator=(Victim& op)
+Victim & Victim::operator=(const Victim& op)
 {
     if (this == &op)
         return (*this);

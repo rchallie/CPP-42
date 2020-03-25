@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/21 12:17:43 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:39:08 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ Sorcerer::Sorcerer(const std::string & name, const std::string & title)
     std::cout << name << ", " << title << " is born !" << std::endl;
 }
 
-Sorcerer::Sorcerer(const Sorcerer&) {}
+Sorcerer::Sorcerer(const Sorcerer& copy) { *this = copy; }
 
 Sorcerer::~Sorcerer()
 {
     std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same!" << std::endl;
 }
 
-Sorcerer & Sorcerer::operator=(Sorcerer& op)
+Sorcerer & Sorcerer::operator=(const Sorcerer& op)
 {
     if (this == &op)
         return (*this);

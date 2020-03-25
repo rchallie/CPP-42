@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 19:34:07 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/24 18:15:07 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <string>
-# include <cstdlib>
+// # include <cstdlib>
 # include <time.h>
 
 # include "ClapTrap.hpp"
@@ -36,7 +36,7 @@ class FragTrap : public ClapTrap
 		FragTrap(std::string name);
 		FragTrap(const FragTrap&);
 		~FragTrap();
-		FragTrap &operator=(FragTrap& op);
+		FragTrap &operator=(const FragTrap& op);
 		void			rangedAttack(std::string const & target);
 		void			meleeAttack(std::string const & target);
 		void			vaulthunter_dot_exe(std::string const & target);

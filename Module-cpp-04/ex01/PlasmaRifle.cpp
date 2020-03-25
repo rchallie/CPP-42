@@ -26,11 +26,11 @@ PlasmaRifle::PlasmaRifle(const PlasmaRifle & copy)
     AWeapon(
         copy
     )
-{}
+{ *this = copy; }
 
 PlasmaRifle::~PlasmaRifle() {}
 
-PlasmaRifle & PlasmaRifle::operator=(PlasmaRifle& op)
+PlasmaRifle & PlasmaRifle::operator=( const PlasmaRifle& op)
 {
     if (this == &op)
         return (*this);

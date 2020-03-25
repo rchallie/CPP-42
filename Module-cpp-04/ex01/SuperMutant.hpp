@@ -23,7 +23,7 @@ class SuperMutant : public Enemy
         SuperMutant();
         SuperMutant(const SuperMutant&);
         ~SuperMutant();
-        SuperMutant &operator=(SuperMutant& op);
+        SuperMutant &operator=(const SuperMutant& op);
         
         // Additionnal
         void        takeDamage(int amount);

@@ -23,7 +23,7 @@ class Minion : public Victim
         Minion(const std::string & name);
         Minion(const Minion & copy);
         ~Minion();
-        Minion &operator=(Minion& op);
+        Minion &operator=(const Minion& op);
 
         // Additionnal
         void    getPolymorphed(void) const;
