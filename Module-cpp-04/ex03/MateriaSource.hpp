@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
 // LIBS ========================================================================
-# include <string>
+# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 // =============================================================================
 
 // PROTOTYPES ==================================================================
-class ICharacter;
-class AMateria;
+class MateriaSource;
 // =============================================================================
 
 // CLASS DEFINITIONS ===========================================================
-class ICharacter
+class MateriaSource : public IMateriaSource
 {
+    private:
+        AMateria*       _templates[4];
+
     public:
-        virtual ~ICharacter() {};
+        // Coplien
+        MateriaSource();
+        MateriaSource(const MateriaSource&);
+        ~MateriaSource();
+        MateriaSource &operator=(const MateriaSource& op);
 
         // Getter - Setter
-        virtual std::string const & getName() const = 0;
 
         // Additionnal
-        virtual void                equip(AMateria* m) = 0;
-        virtual void                unequip(int idx) = 0;
-        virtual void                use(int idx, ICharacter& target) = 0;
+        void learnMateria(AMateria*);
+        AMateria* createMateria(std::string const & type);
 };
 // =============================================================================
 

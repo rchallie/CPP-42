@@ -43,6 +43,8 @@ Squad::Squad(const Squad& op)
         this->push(copy);
         op_units = op_units->_next;
     }
+
+    delete op._units_list;
 }
 
 Squad::~Squad()

@@ -13,10 +13,10 @@
 #include "Cure.hpp"
 
 // COPLIEN =====================================================================
-Cure::Cure(std::string const & type)
+Cure::Cure()
 :
 	AMateria(
-		type
+		"cure"
 	)
 {}
 

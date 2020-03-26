@@ -6,14 +6,16 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 08:49:43 by rchallie          #+#    #+#             */
-/*   Updated: 2020/03/24 11:43:41 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/25 15:40:58 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 /**
- * 		Computes the length of the string s.
+ * @brief Computes the length of the string s.
+ * 
+ * @return the lenght of s.
  */
 int		ft_strlen(char *s)
 {

@@ -14,7 +14,7 @@
 # define CURE_HPP
 
 // LIBS ========================================================================
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 // =============================================================================
 
 // PROTOTYPES ==================================================================
@@ -26,7 +26,7 @@ class Cure : public AMateria
 {
     public:
         // Coplien
-        Cure(std::string const & type);
+        Cure();
         Cure(const Cure&);
         virtual ~Cure();
         Cure &operator=(const Cure& op);

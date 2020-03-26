@@ -16,10 +16,28 @@
 Character::Character(std::string const & name)
 :
 	_name(name)
-{}
+{
+	for (int i = 0; i < 4; i++)
+		this->_inv[i] = NULL;
+}
 
-Character::Character(const Character& copy) { *this = copy; }
-Character::~Character() {}
+Character::Character(const Character& copy)
+{
+	this->_name = std::string(copy.getName());
+	for (int i = 0; i < 4; i++)
+		if (this->_inv[i])
+			delete this->_inv[i];
+	for (int i = 0; i < 4; i++)
+		if (copy._inv[i])
+			this->_inv[i] = copy._inv[i]->clone();
+}
+
+Character::~Character()
+{
+	for (int i = 0; i < 4; i++)
+		if (this->_inv[i])
+			delete this->_inv[i];
+}
 
 Character & Character::operator=(const Character& op)
 {
@@ -40,17 +58,19 @@ Character & Character::operator=(const Character& op)
 // GETTER - SETTER =============================================================
 
 /**
+ * @brief Give "Character" name.
+ * 
  * @return the "Character" name.
  */
-const std::string &	Character::getName(void) const { return (this->_name); }
+std::string const &	Character::getName(void) const { return (this->_name); }
 
 // =============================================================================
 
 // ADDITIONNAL =================================================================
 
-/**
- * Add a "AMateria" object to the "Character" inventory.
- * If the inventory is full, nothing is do.
+/**type
+ * @brief Add a "AMateria" to the "Character" inventory.
+ * If the inventory is full, nothing will be done.
  * 
  * @param m the pointer to the "AMaterial" object to add.
  */
@@ -65,18 +85,31 @@ void				Character::equip(AMateria* m)
 }
 
 /**
- * Unequip the "AMateria" object from the "Character" inventory
+ * @brief Unequip the "AMateria" from the "Character" inventory
  * at index. If the index gived is out of the slots number of
- * inventory, nothing is do.
+ * inventory ot the slot is empty nothing will be done.
+ * The "AMateria" will not be destroyed.
  * 
  * @param idx the index of inventory slot where the "AMateria" is.
  */
 void				Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
-	{
+		this->_inv[idx] = NULL;
+}
 
-	}
+/**
+ * @brief Use the "AMateria" at the slot on targeted "ICharacter".
+ * If the index gived is out of the slots number of
+ * inventory ot the slot is empty nothing will be done.
+ * 
+ * @param idx the index of inventory slot where the "AMateria" is.
+ * @param target the target where the materia will be used
+ */
+void				Character::use(int idx, ICharacter& target)
+{
+	if (idx >= 0 && idx < 4)
+		this->_inv[idx]->use(target);
 }
 
 // =============================================================================

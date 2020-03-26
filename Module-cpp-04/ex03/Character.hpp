@@ -15,6 +15,7 @@
 
 // LIBS ========================================================================
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 // =============================================================================
 
 // PROTOTYPES ==================================================================
@@ -22,7 +23,7 @@ class Character;
 // =============================================================================
 
 // CLASS DEFINITIONS ===========================================================
-class Character
+class Character : public ICharacter
 {
     private:
         std::string     _name;
@@ -32,7 +33,7 @@ class Character
         // Coplien
         Character(std::string const & name);
         Character(const Character&);
-        virtual ~Character();
+        ~Character();
         Character &operator=(const Character& op);
 
         // Getter - Setter

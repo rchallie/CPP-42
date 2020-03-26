@@ -14,7 +14,7 @@
 # define ICE_HPP
 
 // LIBS ========================================================================
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 // =============================================================================
 
 // PROTOTYPES ==================================================================
@@ -26,7 +26,7 @@ class Ice : public AMateria
 {
     public:
         // Coplien
-        Ice(std::string const & type);
+        Ice();
         Ice(const Ice&);
         virtual ~Ice();
         Ice &operator=(const Ice& op);

@@ -13,10 +13,10 @@
 #include "Ice.hpp"
 
 // COPLIEN =====================================================================
-Ice::Ice(std::string const & type)
+Ice::Ice()
 :
 	AMateria(
-		type
+		"ice"
 	)
 {}
 
