@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 18:39:18 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/26 16:58:18 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ class Sorcerer
         void    polymorph(Victim const & victim);
 };
 
+// FUNCTIONS SUP PROTOYPES =====================================================
+
 std::ostream    &operator<<(std::ostream & out, const Sorcerer & sorcerer);
+
+// =============================================================================
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 17:19:26 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 13:18:28 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/26 13:22:59 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int main()
     
     moi->use(0, *bob);
     std::cout << "[+] TMP xp = " << tmp->getXP() << std::endl;
-
 
     delete bob;
     delete moi;
