@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                                       :+:      :+:    :+:   */
+/*   RobotmyRequestForm.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "RobotmyRequestForm.hpp"
 
 // COPLIEN =====================================================================
 
 /**
  * @brief Constructor:
- * The "PresidentialPardonForm".
+ * The "RobotmyRequestForm".
+ * 
+ * @param target the target where the "Form" can be executed.
  */
-PresidentialPardonForm::PresidentialPardonForm(std::string const & target)
+RobotmyRequestForm::RobotmyRequestForm(std::string const & target)
 :
 	Form(
-		"President",
-		25,
-		5,
+		"Robotmy",
+		72,
+		45,
 		target
 	)	
-{}
+{ srand(time(NULL)); }
 
 /**
  * @brief Copy:
- * Copy the "PresidentialPardonForm".
+ * Copy the "RobotmyRequestForm".
  * 
- * @param copy the "PresidentialPardonForm" to copy.
+ * @param copy the "RobotmyRequestForm" to copy.
  */
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy)
+RobotmyRequestForm::RobotmyRequestForm(const RobotmyRequestForm& copy)
 :
 	Form(
 		copy.getName(),
@@ -42,15 +44,15 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cop
 		copy.getExecGrade(),
 		copy.getTarget()
 	)
-{ *this = copy; }
+{ *this = copy; srand(time(NULL)); }
 
 /**
  * @brief Destructor:
  * Called when the object "Bureaucrat" is delete
  */
-PresidentialPardonForm::~PresidentialPardonForm() {}
+RobotmyRequestForm::~RobotmyRequestForm() {}
 
-PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPardonForm& op)
+RobotmyRequestForm & RobotmyRequestForm::operator=(const RobotmyRequestForm& op)
 {
 	if (this == &op)
 		return (*this); 
@@ -70,9 +72,13 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
  * 
  * @param executor the "Bureaucrat" that execute the "Form".
  */
-void					PresidentialPardonForm::beExecuted() const
+void					RobotmyRequestForm::beExecuted() const
 {
-	std::cout << this->getTarget() << " was pardonned by Zafod Beeblebrox." << std::endl;
+	std::cout << "Vvvvvvvrrrrr...vvvvrrr...VVVvvvrrrr...VvvVvvrr..." << std::endl;
+	if((1 + (rand() % 3)) == 2)
+		std::cout << this->getTarget() << " was robotomized!" << std::endl;
+	else
+		std::cout << "The robotization messed up..." << std::endl;
 }
 
 // =============================================================================

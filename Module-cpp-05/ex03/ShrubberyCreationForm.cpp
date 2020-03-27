@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                                       :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 // COPLIEN =====================================================================
 
 /**
  * @brief Constructor:
- * The "PresidentialPardonForm".
+ * The "ShrubberyCreationForm".
  */
-PresidentialPardonForm::PresidentialPardonForm(std::string const & target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target)
 :
 	Form(
-		"President",
-		25,
-		5,
+		"Shrubbery",
+		145,
+		137,
 		target
 	)	
 {}
 
 /**
  * @brief Copy:
- * Copy the "PresidentialPardonForm".
+ * Copy the "ShrubberyCreationForm".
  * 
- * @param copy the "PresidentialPardonForm" to copy.
+ * @param copy the "ShrubberyCreationForm" to copy.
  */
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
 :
 	Form(
 		copy.getName(),
@@ -48,9 +48,9 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cop
  * @brief Destructor:
  * Called when the object "Bureaucrat" is delete
  */
-PresidentialPardonForm::~PresidentialPardonForm() {}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPardonForm& op)
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm& op)
 {
 	if (this == &op)
 		return (*this); 
@@ -66,13 +66,33 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
 // ADDITIONNAL =================================================================
 
 /**
- * @brief try to robotize the "Bureaucrat".
+ * @brief print a tree in <"Bureaucrat"name>_shrubbery.
  * 
  * @param executor the "Bureaucrat" that execute the "Form".
  */
-void					PresidentialPardonForm::beExecuted() const
+void					ShrubberyCreationForm::beExecuted() const
 {
-	std::cout << this->getTarget() << " was pardonned by Zafod Beeblebrox." << std::endl;
+	std::ofstream file;
+
+	file.open(this->getTarget() + "_shrubbery", std::ios::out | std::ios::app);
+	if(file.is_open())
+	{
+		file << "                 # #### ####			" << std::endl;
+        file << "               ### \\/#|### |/####		" << std::endl;
+        file << "              ##\\/#/ \\||/##/_/##/_#	" << std::endl;
+        file << "            ###  \\/###|/ \\/ # ###	" << std::endl;
+        file << "          ##_\\_#\\_\\## | #/###_/_####" << std::endl;
+        file << "         ## #### # \\ #| /  #### ##/##	" << std::endl;
+        file << "          __#_--###`  |{,###---###-~	" << std::endl;
+        file << "                    \\ }{				" << std::endl;
+        file << "                     }}{				" << std::endl;
+        file << "                     }}{				" << std::endl;
+        file << "                     {{}				" << std::endl;
+        file << "               , -=-~{ .-^- _			" << std::endl;
+        file << "                     `}				" << std::endl;
+        file << "                      {				" << std::endl;
+		file.close();
+	}
 }
 
 // =============================================================================
