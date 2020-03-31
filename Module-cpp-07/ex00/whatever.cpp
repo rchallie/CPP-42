@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/30 10:17:57 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/30 11:03:27 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/03/30 11:26:23 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param a the first argument.
  * @param b the second ... argument, yep.
  */
-template <class T>
+template <typename T>
 void        swap(T* a, T* b)
 {
     T tmp = *a;
@@ -36,7 +36,7 @@ void        swap(T* a, T* b)
  * If the two values are the same, return the
  * second.
  */
-template <class T>
+template <typename T>
 T       min(const T& a, const T& b)
 {
     return (b <= a ? b : a);
@@ -52,7 +52,7 @@ T       min(const T& a, const T& b)
  * If the two values are the same, return the
  * second.
  */
-template <class T>
+template <typename T>
 T       max(const T& a, const T& b)
 {
     return (b >= a ? b : a);
