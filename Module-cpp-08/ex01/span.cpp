@@ -115,6 +115,14 @@ long		Span::shortestSpan(void)
 	return (final_shortest);
 }
 
+/**
+ * @brief get the longest span in "Span".
+ * 
+ * @throw if "Span" have not enough value to do
+ * a span.
+ * 
+ * @return the longest span. 
+ */
 long		Span::longestSpan(void)
 {
 	if(this->_values.size() <= 1)
