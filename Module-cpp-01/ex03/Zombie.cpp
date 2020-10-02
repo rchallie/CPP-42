@@ -3,27 +3,89 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 17:06:13 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/14 19:22:34 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/14 17:06:13 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/03 00:44:37 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() { this->type = "", this->name = ""; }
-Zombie::Zombie(std::string type, std::string name) { this->type = type; this->name = name;}
+/*
+** @brief Default contructor:
+** The "Zombie".
+*/
+Zombie::Zombie()
+:
+    _name(),
+    _type()
+{}
 
+/*
+** @brief Init contrcutor:
+** The "Zombie".
+*/
+Zombie::Zombie(std::string type, std::string name)
+:
+    _type(type),
+    _name(name)
+{}
+
+/*
+** @brief Copy:
+** Copy the "Zombie".
+** 
+** @param copy the "Zombie" to copy.
+*/
+Zombie::Zombie(const Zombie& copy)
+:
+    _name(copy._name),
+    _type(copy._type)
+{}
+
+/*
+** @brief Destructor:
+** Called when the object "Zombie" is delete
+*/
 Zombie::~Zombie() {}
 
-std::string Zombie::getName() {return (this->name); }
-std::string Zombie::getType() {return (this->type); }
+Zombie & Zombie::operator=(const Zombie & op)
+{
+    if (this == &op)
+        return (*this);
+    this->_name = op._name;
+    this->_type = op._type;
+    return (*this);
+}
 
-void Zombie::setName(std::string name) { this->name = name; }
-void Zombie::setType(std::string type) { this->type = type; }
+// GETTER - SETTER =============================================================
 
+/*
+** @brief Getters of each attributes of "Zombie".
+*/
+std::string Zombie::getName() {return (this->_name); }
+std::string Zombie::getType() {return (this->_type); }
+
+/*
+** @brief Setters of each attributes of "Zombie".
+*/
+void Zombie::setName(std::string name) { this->_name = name; }
+void Zombie::setType(std::string type) { this->_type = type; }
+// =============================================================================
+
+// ADDITIONNAL =================================================================
+
+/*
+** @brief Let the zombie exprim who is it.
+** Use is attributes.
+*/
 void Zombie::announce()
 {
     std::cout << "<" << getName() << " (" << getType() << ")> Braiiiiiiinnnssss ..." << std::endl;
 }
+
+// =============================================================================
+
+// FUNCTIONS SUP ===============================================================
+// =============================================================================

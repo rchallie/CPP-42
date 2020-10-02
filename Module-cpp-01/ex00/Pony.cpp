@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 12:00:53 by rchallie          #+#    #+#             */
-/*   Updated: 2020/10/03 00:02:20 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/03 00:46:54 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Pony::Pony(const Pony& copy)
 
 /*
 ** @brief Destructor:
-** Called when the object "Contact" is delete
+** Called when the object "Pony" is delete
 */
 Pony::~Pony()
 { std::cout << "This is the end of the pony..." << std::endl; }
