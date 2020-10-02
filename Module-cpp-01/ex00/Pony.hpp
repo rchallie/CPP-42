@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Pony.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 12:01:17 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 12:13:18 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/14 12:01:17 by rchallie         #+#    #+#             */
+/*   Updated: 2020/10/03 00:00:17 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,14 @@ class Pony;
 // CLASSES DEFINITIONS =========================================================
 class Pony
 {
-	private:
-		std::string _name;
-		std::string _color;
-		std::string _favorite_food;
-		std::string _owner;
-		std::string _size;
-		std::string _weight;
-
 	public:
 		Pony();
 		Pony(std::string name, std::string color,
 			std::string favorite_food, std::string owner,
 			std::string size, std::string weight);
-		~Pony();
+		Pony(const Pony&);
+		virtual ~Pony();
+		Pony &operator=(const Pony& op);
 		
 		// Getter - Setter
 		void			set_Name(std::string name);
@@ -53,12 +47,18 @@ class Pony
 		std::string 	get_Owner();
 		std::string 	get_Size();
 		std::string 	get_Weight();
+
+	private:
+		std::string _name;
+		std::string _color;
+		std::string _favorite_food;
+		std::string _owner;
+		std::string _size;
+		std::string _weight;
 };
 // =============================================================================
 
 // FUNCTIONS PROTOYPES =========================================================
-void    poneyOnTheStack();
-void    poneyOnTheHeap();
 // =============================================================================
 
 #endif
