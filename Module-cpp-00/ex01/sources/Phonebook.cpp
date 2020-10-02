@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 08:22:11 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/25 15:39:17 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/10/02 02:23:45 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/phonebook.hpp"
+#include "../includes/Phonebook.hpp"
 
-/**
- *  Check that is the phonebook is full. 
- */
+/*
+** @brief Ask for delete the first contact
+** to add a new one at the end.
+**
+** @param list the list of contacts.
+** @return 0 if error appear, 1 otherwise.
+*/
 static int	_full(Contact list[8])
 {
 	std::string rep;
@@ -31,53 +35,39 @@ static int	_full(Contact list[8])
 	{
 		for (int i = 1; i < 7; i++)
 			list[i - 1] = list[i];
-		list[7].infos[0][0].clear();
+		list[7].clear();
 	}
     std::cout << "This entry has no meaning, return to the main menu." << std::endl;
     return (1);
 }
 
-/**
- *  Add a contact to phonebook 
- */
+/*
+** @brief Add a new contact to the list.
+**
+** @param list the list of contact.
+** @return 0 to define the next stage of
+** the program.
+*/
 static int _add(Contact list[8])
 {
     int j = 0;
-    while (!list[j].infos[0][0].empty() && j < 8)
+    while (!list[j].empty() && j < 8)
         j++;
     if (j == 8)
         return (_full(list));
-    Contact new_contact;
-    std::string infos_name[11] = {
-			"first name",
-			"last name",
-			"nickname",
-			"login",
-			"postal address",
-			"email address",
-			"phone number",
-			"birthday date",
-			"favorite meal",
-			"underwear color",
-			"darkest secret"
-		};
-    for (int i = 0; i < 11; i++)
-	{
-		new_contact.infos[i][0] = infos_name[i];
-		std::cout << new_contact.infos[i][0] << " : ";
-		std::getline(std::cin, new_contact.infos[i][1]);
-	}
-    list[j] = new_contact;
+    list[j].setup();
     return (0);
 }
 
-/**
- *  Get start menu entry
- */
+/*
+** @brief Wait for entry.
+**
+** @return the number of the next stage.
+*/
 static int _start_menu()
 {
     std::string entry;
-	std::cout << "So what do we do? : ";
+	std::cout << "So what do we do? > ";
 	std::getline(std::cin, entry);
 	if (std::cin.eof())
 		return (3);
@@ -90,9 +80,12 @@ static int _start_menu()
 	return (0);
 }
 
-/**
- *  Addapt string to index format.
- */
+/*
+** @brief Print string to the search column
+** format.
+**
+** @param the string to print.
+*/
 static void _print_to_format(std::string s)
 {
     if (s.size() > 10)
@@ -106,9 +99,13 @@ static void _print_to_format(std::string s)
     std::cout << s;
 }
 
-/**
- *  Print index informations
- */
+/*
+** @brief Ask for the index of contact to print.
+**
+** @param list the list of contact.
+** @param contact_amount.
+** @return 0 if an error appear, 0 otherwise.
+*/
 static int _print_infos_by_index(Contact list[8], int contact_amount)
 {
     std::string entry;
@@ -117,29 +114,31 @@ static int _print_infos_by_index(Contact list[8], int contact_amount)
     if (entry.length() != 1)
         return (0);
     int index = atoi(entry.c_str());
-    if (index < 0 || index > 8 || list[index].infos[0][0].empty())
+    if (index < 0 || index > 8 || list[index].empty())
         return (0);
-    for (int i = 0; i < 11; i++)
-        std::cout << list[index].infos[i][0] << " : " << list[index].infos[i][1] << std::endl;
+    list[index].print_contact();
     return (1);
 }
 
-/**
- *  Expose contact in phonebook and ask for index of contact needed
- */
+/*
+** @brief Print contact list.
+**
+** @param list the contact list.
+** @return 0 for set the next stage.
+*/
 static int _search(Contact list[8])
 {
     std::cout << "     index|first name| last name|    pseudo" << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
     int j = 0;
-    while (!list[j].infos[0][0].empty() && j < 8)
+    while (!list[j].empty() && j < 8)
     {
         std::cout << "         " << j << "|";
-        _print_to_format(list[j].infos[0][1]);
+        _print_to_format(list[j].getFirstName());
         std::cout << "|";
-        _print_to_format(list[j].infos[1][1]);
+        _print_to_format(list[j].getLastName());
         std::cout << "|";
-        _print_to_format(list[j].infos[2][1]);
+        _print_to_format(list[j].getNickname());
         std::cout << std::endl;
         j++;
     }
@@ -154,18 +153,18 @@ static int _search(Contact list[8])
     return (0);
 }
 
-/**
- * Leave
- */
+/*
+** @brief Print end message and exit.
+*/
 static void _end()
 {
     std::cout << "Bye bye !" << std::endl;
     exit(0);
 }
 
-/**
- *  Print title
- */
+/*
+** @brief Print title and command list.
+*/
 static void	title(void)
 {
 	std::cout << std::endl;
@@ -180,9 +179,12 @@ static void	title(void)
 	std::cout << " - ADD \n - SEARCH \n - EXIT \n" << std::endl;
 }
 
-/**
- * What a phonebook
- */
+/*
+** @brief Phonebook is a program to add
+** contact in it.
+**
+** @return 0.
+*/
 int main()
 {
     int actual_state;

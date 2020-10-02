@@ -12,20 +12,15 @@ FLAGS = -Wall -Wextra -Werror
 # ==========================================================================================
 
 # OBJS =====================================================================================
-OBJS_DIR 	= 	objs/
+OBJS_DIR 	= 	objects/
 OBJ 		= 	$(SRCS:.cpp=.o)
 OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
-# ==========================================================================================
-
-# COLORS ===================================================================================
-_GREEN=$'\x1b[32m
-_WHITE=$'\x1b[37m
 # ==========================================================================================
 
 # FROM SUBJECT =============================================================================
 $(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp
 	@mkdir -p $(OBJS_DIR)
-	@echo "$(_WHITE)Compiling: $(_GREEN)$<$(_WHITE)"
+	@echo "Compiling: $<"
 	@clang++ $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
@@ -34,11 +29,11 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	@echo "$(_WHITE)Cleaning: $(_GREEN)$(OBJS_DIR)$(_WHITE)"
+	@echo "Cleaning: $(OBJS_DIR)"
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@echo "$(_WHITE)Cleaning: $(_GREEN)$(NAME)$(_WHITE)"
+	@echo "Cleaning: $(NAME)"
 	@rm -f $(NAME)
 
 re: fclean all

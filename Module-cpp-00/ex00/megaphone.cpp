@@ -3,42 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 08:49:43 by rchallie          #+#    #+#             */
-/*   Updated: 2020/03/25 15:40:58 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/10/01 22:44:07 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-/**
- * @brief Computes the length of the string s.
- * 
- * @return the lenght of s.
- */
+/*
+** @brief Computes the length of the string s.
+** 
+** @param s the string.
+** @return the lenght of s.
+*/
 int		ft_strlen(char *s)
 {
 	int i;
 
-	if (!s) return 0;
-	for (i = 0; s[i]; i++);
+	for (i = 0; s && s[i]; i++);
 	return (i);
 }
 
-/**
- *  	Converts a lower-case letter to the corresponding
- * 		upper-case letter.
- */
+/*
+** @brief Converts a lower-case letter to the corresponding
+** upper-case letter.
+**
+** @param c the char to convert.
+** @return the char uppered.
+*/
 char	ft_toupper(char c)
 {
 	return ((c >= 97 && c <= 122) ? c - 32 : c);
 }
 
-/**
- * 		Out the arguments in capital letters
- */
-
+/*
+** @brief Output a string with all letters are uppered.
+**
+** @param argc the number of arguments.
+** @param argv the arguments.
+** @return 0 in all case.
+*/
 int		main(int argc, char **argv)
 {
 	if (argc > 1)

@@ -6,7 +6,7 @@
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 22:31:51 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/15 23:22:39 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/07/15 11:04:35 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
         
         HumanA  bob("Bob", club);
         bob.attack();
-        club.setType("some other type if club");
+        club.setType("some other type of club");
         bob.attack();
     }
     {

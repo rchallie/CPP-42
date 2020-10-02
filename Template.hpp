@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Template.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 08:21:56 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 11:48:54 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
+/*   Updated: 2020/03/26 16:35:58 by excalibur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef TEMPLATE_HPP
+# define TEMPLATE_HPP
 
 // LIBS ========================================================================
-# include <iostream>
-# include <stdlib.h>
 // =============================================================================
 
 // PROTOTYPES ==================================================================
-class Contact;
+class Template;
 // =============================================================================
 
-// CLASSES DEFINITIONS =========================================================
-class Contact
+// CLASS DEFINITIONS ===========================================================
+class Template
 {
     public:
-        std::string infos[11][2];
-        Contact();
-        ~Contact();
+        // Coplien
+        Template();
+        Template(const Template&);
+        virtual ~Template();
+        Template &operator=(const Template& op);
+
+        // Getter - Setter
+
+        // Additionnal
+
+        // Exceptions
 };
+// =============================================================================
+
+// FUNCTIONS SUP PROTOYPES =====================================================
 // =============================================================================
 
 #endif
