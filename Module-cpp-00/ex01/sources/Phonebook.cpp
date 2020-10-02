@@ -6,11 +6,11 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 08:22:11 by excalibur         #+#    #+#             */
-/*   Updated: 2020/10/02 02:23:45 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/02 22:56:44 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Phonebook.hpp"
+#include "../includes/Contact.hpp"
 
 /*
 ** @brief Ask for delete the first contact
@@ -128,7 +128,7 @@ static int _print_infos_by_index(Contact list[8], int contact_amount)
 */
 static int _search(Contact list[8])
 {
-    std::cout << "     index|first name| last name|    pseudo" << std::endl;
+    std::cout << "     index|first name| last name|  nickname" << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
     int j = 0;
     while (!list[j].empty() && j < 8)
