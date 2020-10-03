@@ -13,23 +13,32 @@
 #ifndef HUMANA_HPP
 # define HUMANA_HPP
 
-// From developpez : l'usage d'une référence indique alors que le paramètre est modifié par la fonction
-// Passer en argument en référence permet de modifier directement la variable d'origine (celle passer en argument)
-// et non une "copie" comme classiquement
-
+// LIBS ========================================================================
 #include "Weapon.hpp"
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class HumanA;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class HumanA
 {   
-    private:
-        std::string name;
-        Weapon&     weapon;
     public:
         HumanA(std::string name, Weapon& weapon);
-        ~HumanA();
+        HumanA(const HumanA&);
+        virtual ~HumanA();
+        HumanA &operator=(const HumanA& op);
+
         void        attack();
+    
+    private:
+        std::string _name;
+        Weapon&     _weapon;
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif

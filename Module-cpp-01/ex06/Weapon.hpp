@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                       :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/15 20:58:32 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/03 11:16:21 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
+// LIBS ========================================================================
 #include <iostream>
 #include <string>
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class Weapon;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class Weapon
 {
-    private:
-        std::string type;
     public:
         Weapon();
         Weapon(std::string type);
-        ~Weapon();
-        const std::string& getType();
-        void        setType(const std::string& type);
+        Weapon(const Weapon&);
+        virtual ~Weapon();
+        Weapon &operator=(const Weapon& op);
+
+		// Getter - Setter
+        const std::string&  getType();
+        void                setType(const std::string& type);
+
+    private:
+        std::string _type;
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif

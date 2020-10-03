@@ -12,8 +12,51 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(weapon) {}
+/*
+** @brief Init contrcutor:
+** The "Pony".
+*/
+HumanA::HumanA(std::string name, Weapon& weapon)
+:
+    _name(name),
+    _weapon(weapon)
+{}
 
+/*
+** @brief Copy:
+** Copy the "Pony".
+** 
+** @param copy the "Pony" to copy.
+*/
+HumanA::HumanA(const HumanA& copy)
+:
+    _name(copy._name),
+    _weapon(copy._weapon)
+{}
+
+/*
+** @brief Destructor:
+** Called when the object "Pony" is delete
+*/
 HumanA::~HumanA() {}
 
-void    HumanA::attack() { std::cout << this->name << " attacks with his " << this->weapon.getType() << std::endl; }
+HumanA &HumanA::operator=(const HumanA& op)
+{
+    if (this == &op)
+        return (*this);
+    this->_name = op._name;
+    this->_weapon = op._weapon;
+    return (*this);
+}
+
+// ADDITIONNAL =================================================================
+
+/*
+** @brief Attack speech of this human.
+*/
+void    HumanA::attack() { std::cout << this->_name << " attacks with his " << this->_weapon.getType() << std::endl; }
+
+// =============================================================================
+
+// FUNCTIONS SUP ===============================================================
+// =============================================================================

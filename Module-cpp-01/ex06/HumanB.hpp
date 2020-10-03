@@ -1,32 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                       :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/15 20:58:32 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/03 11:37:02 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
 # define HUMANB_HPP
 
+// LIBS ========================================================================
 #include "Weapon.hpp"
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class HumanB;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class HumanB
 {
-    private:
-        Weapon      *weapon;
-        std::string name;
     public:
-        HumanB(std::string name);
-        ~HumanB();
+        HumanB(const std::string &name);
+        HumanB(const HumanB&);
+        virtual ~HumanB();
+        HumanB &operator=(const HumanB& op);
+        
+		// Getter - Setter
         void        setWeapon(Weapon& weapon);
+
         void        attack();
+    
+    private:
+        Weapon      *_weapon;
+        std::string _name;
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif
