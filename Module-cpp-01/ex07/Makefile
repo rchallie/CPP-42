@@ -4,12 +4,12 @@ NAME = replace
 
 # SRCS =====================================================================================
 SRCS_DIR = srcs/
-SRCS =	replace.cpp \
-		error.cpp 
+SRCS =	Replace.cpp \
+		Error.cpp 
 # ==========================================================================================
 
 # INCLUDES =================================================================================
-INCS_DIR = incs/replace.hpp
+INCS_DIR = incs/Replace.hpp
 # ==========================================================================================
 
 # DEPEDENCIES ==============================================================================
@@ -27,30 +27,26 @@ OBJ 		= 	$(SRCS:.cpp=.o)
 OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
 # ==========================================================================================
 
-# COLORS ===================================================================================
-_GREEN=$'\x1b[32m
-_WHITE=$'\x1b[37m
-# ==========================================================================================
 
 # FROM SUBJECT =============================================================================
 $(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp $(INCS_DIR)
 	@mkdir -p $(OBJS_DIR)
-	@mkdir -p $(OBJS_DIR)/replace
-	@echo "$(_WHITE)Compiling: $(_GREEN)$<$(_WHITE)"
+	@echo "Compiling: $<"
 	@clang++ $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	# @echo "y" | rm -r ~/Library/Caches/*; rm ~/.zcompdump*; brew cleanup
 	@clang++ -g -fsanitize=address $(FLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
 clean:
-	@echo "$(_WHITE)Cleaning: $(_GREEN)$(OBJS_DIR)$(_WHITE)"
+	@echo "Cleaning: $(OBJS_DIR)"
 	@rm -rf $(OBJS_DIR)
+	@rm test_files/Monde.replace
+	@rm test_files/Mohamed_Ali.replace
 
 fclean: clean
-	@echo "$(_WHITE)Cleaning: $(_GREEN)$(NAME)$(_WHITE)"
+	@echo "Cleaning: $(NAME)"
 	@rm -f $(NAME)
 
 re: fclean all
@@ -59,4 +55,30 @@ re: fclean all
 # SUP ======================================================================================
 run: $(NAME)
 	./$(NAME)
+
+check: $(NAME)
+	./$(NAME) test_files/Monde monde "pate carbo"
+	./$(NAME) test_files/Mohamed_Ali "Mohamed Ali" "COMMENT C'EST BEAU"
+	@echo
+	@echo "MONDE ==========================================================================="
+	@echo
+	@cat test_files/Monde
+	@echo
+	@echo "MONDE.replace ==================================================================="
+	@echo
+	@cat test_files/Monde.replace
+	@echo
+	@echo "================================================================================="
+	@echo
+	@echo "Mohamed_Ali ====================================================================="
+	@echo
+	@cat test_files/Mohamed_Ali
+	@echo
+	@echo
+	@echo "Mohamed_Ali.replace ============================================================="
+	@echo
+	@cat test_files/Mohamed_Ali.replace
+	@echo
+	@echo
+	@echo "================================================================================="
 # ==========================================================================================

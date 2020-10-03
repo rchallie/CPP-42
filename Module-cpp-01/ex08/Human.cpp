@@ -14,21 +14,33 @@
 
 typedef void(Human::* func_member) (std::string const &);
 
+/*
+** @brief Melee Attack.
+*/
 void        Human::meleeAttack(std::string const & target)
 {
     std::cout << "An human try to attack " << target << " with his sword !" << std::endl;
 }
 
+/*
+** @brief Ranged Attack.
+*/
 void        Human::rangedAttack(std::string const & target)
 {
-    std::cout << "An human think he can attack " << target << "like Robin Hood !" << std::endl;
+    std::cout << "An human think he can attack " << target << " like Robin Hood !" << std::endl;
 }
 
+/*
+** @brief Shout.
+*/
 void        Human::intimidatingShout(std::string const & target)
 {
     std::cout << "An human shout after " << target << std::endl; 
 }
 
+/*
+** @brief Call action in function of action_name.
+*/
 void        Human::action(std::string const & action_name, std::string const & target)
 {
     std::string func_names[3] = {
@@ -44,6 +56,6 @@ void        Human::action(std::string const & action_name, std::string const & t
     };
 
     for (int ac_count = 0; ac_count < 3; ac_count++)
-        if (func_names[ac_count].compare(action_name))
+        if (!func_names[ac_count].compare(action_name))
             (this->*member[ac_count])(target);
 }
