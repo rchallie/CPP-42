@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/17 18:23:29 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/17 19:42:27 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/17 18:23:29 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/05 22:49:18 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,9 @@ int main()
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+    std::cout << "a is " << a.toFloat() << " as float" << std::endl;
+    std::cout << "b is " << b.toFloat() << " as float" << std::endl;
+    std::cout << "c is " << c.toFloat() << " as float" << std::endl;
+    std::cout << "d is " << d.toFloat() << " as float" << std::endl;
 }

@@ -14,43 +14,54 @@
 
 #include "Fixed.hpp"
 
+/*
+** @brief Default contructor:
+** The "Fixed".
+*/
 Fixed::Fixed()
-{
-    // std::cout << "Default constructor called" << std::endl;
-    this->value = 0;
-}
+{ this->value = 0; }
 
-Fixed::Fixed(const Fixed& copy)
-{
-    // std::cout << "Copy constructor called" << std::endl;
-    *this = copy;
-}
-
+/*
+** @brief Init contrcutor:
+** The "Fixed". Using an Integer.
+*/
 Fixed::Fixed(const int integer)
-{
-    // std::cout << "Int constructor called" << std::endl;
-    this->value = integer << this->fractionnal_bits;
-}
+{ this->value = integer << this->fractionnal_bits; }
 
+/*
+** @brief Init contrcutor:
+** The "Fixed". Using an float.
+** We transform the float to a integer.
+*/
 Fixed::Fixed(const float floater)
-{
-    // std::cout << "Float constructor called" << std::endl;
-    this->value = (int)(roundf(floater * (1 << this->fractionnal_bits)));
-}
+{ this->value = (int)(roundf(floater * (1 << this->fractionnal_bits))); }
 
+/*
+** @brief Copy:
+** Copy the "Fixed".
+** 
+** @param copy the "Fixed" to copy.
+*/
+Fixed::Fixed(const Fixed& copy)
+{ *this = copy; }
+
+/*
+** @brief Destructor:
+** Called when the object "Fixed" is delete
+*/
 Fixed::~Fixed()
-{
-    // std::cout << "Destructor called" << std::endl;
-}
+{}
 
 Fixed & Fixed::operator=(const Fixed& op)
 {
-    // std::cout << "Assignation operator called" << std::endl;
     if (this != &op)
         this->value = op.getRawBits();
     return (*this);
 }
 
+/*
+** @brief Plus operator.
+*/
 Fixed Fixed::operator+(const Fixed & op) const
 {
     Fixed rtn;
@@ -58,6 +69,9 @@ Fixed Fixed::operator+(const Fixed & op) const
     return (rtn);
 }
 
+/*
+** @brief Minus operator.
+*/
 Fixed Fixed::operator-(const Fixed & op) const
 {
     Fixed rtn;
@@ -65,6 +79,9 @@ Fixed Fixed::operator-(const Fixed & op) const
     return (rtn);
 }
 
+/*
+** @brief Multiplication operator.
+*/
 Fixed Fixed::operator*(const Fixed & op) const
 {
     Fixed rtn;
@@ -72,6 +89,9 @@ Fixed Fixed::operator*(const Fixed & op) const
     return (rtn);
 }
 
+/*
+** @brief Division operator.
+*/
 Fixed Fixed::operator/(const Fixed & op) const
 {
     Fixed rtn;
@@ -79,14 +99,18 @@ Fixed Fixed::operator/(const Fixed & op) const
     return (rtn);
 }
 
-// Pre increment
+/*
+** @brief Pre increment operator.
+*/
 Fixed & Fixed::operator++(void)
 {
     this->value++;
     return (*this);
 }
 
-// Post increment
+/*
+** @brief Post increment operator.
+*/
 Fixed Fixed::operator++(int)
 {
     Fixed rtn(*this);
@@ -94,14 +118,18 @@ Fixed Fixed::operator++(int)
     return (rtn);
 }
 
-// Pre decrement
+/*
+** @brief Pre decrement operator.
+*/
 Fixed & Fixed::operator--(void)
 {
     this->value--;
     return (*this);
 }
 
-// Post decrement
+/*
+** @brief Post decrement operator.
+*/
 Fixed Fixed::operator--(int)
 {
     Fixed rtn(*this);
@@ -109,8 +137,18 @@ Fixed Fixed::operator--(int)
     return (rtn);
 }
 
-static bool isEqual(Fixed const & op1, Fixed const & op2) { return (op1.getRawBits() == op2.getRawBits()); }
+/*
+** @brief Return a boolean that contain
+** if the two "Fixed" values are equals.
+*/
+static bool isEqual(Fixed const & op1, Fixed const & op2)
+{ return (op1.getRawBits() == op2.getRawBits()); }
 
+/*
+** @brief Comparaison operators.
+** The comparaison is between the brut values
+** of the "Fixed"s. 
+*/
 bool Fixed::operator>(Fixed const & op) const { return (this->value > op.getRawBits()); }
 bool Fixed::operator<(Fixed const & op) const { return (this->value < op.getRawBits()); }
 bool Fixed::operator>=(Fixed const & op) const { return (this->value >= op.getRawBits()); }
@@ -118,24 +156,69 @@ bool Fixed::operator<=(Fixed const & op) const { return (this->value <= op.getRa
 bool Fixed::operator==(Fixed const & op) const { return (isEqual(*this, op)); }   
 bool Fixed::operator!=(Fixed const & op) const { return !(isEqual(*this, op)); }
 
+
+// GETTER - SETTER =============================================================
+
+/*
+** @brief Give the brut value of the fixec
+** point number.
+**
+** @brief the brut value.
+*/
+int Fixed::getRawBits(void) const
+{ return (this->value); }
+
+/*
+** @brief Set the brut value of the fixec
+** point number.
+**
+** @brief the brut value.
+*/
+void Fixed::setRawBits(int const raw)
+{ this->value = raw; }
+
+// =============================================================================
+
+// ADDITIONNAL =================================================================
+
+/*
+** @brief Transform the brut value of fixed
+** point to a float.
+*/
+float Fixed::toFloat(void) const
+{ return ((float)this->value / (float)(1 << this->fractionnal_bits)); }
+
+/*
+** @brief Transform the brut value of fixed
+** point to an int.
+*/
+int Fixed::toInt(void) const
+{ return ((int)(this->value >> this->fractionnal_bits)); }
+
+
 Fixed & Fixed::min(Fixed &u, Fixed &v) { return (u < v ? u : v); }
 const Fixed & Fixed::min(const Fixed &u, const Fixed &v) { return (u < v ? u : v); }
 Fixed & Fixed::max(Fixed &u, Fixed &v) { return (u > v ? u : v); }
 const Fixed & Fixed::max(const Fixed &u, const Fixed &v) { return (u > v ? u : v); }
 
-int Fixed::getRawBits(void) const
-{
-    // std::cout << "getRawBits member function called" << std::endl;
-    return (this->value);
-}
+// =============================================================================
 
-void Fixed::setRawBits(int const raw) { this->value = raw; }
-
-float Fixed::toFloat(void) const { return ((float)this->value / (float)(1 << this->fractionnal_bits)); }
-int Fixed::toInt(void) const { return ((int)(this->value >> this->fractionnal_bits)); }
+// FUNCTIONS SUP ===============================================================
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixe)
 {
     out << fixe.toFloat();
     return (out);
 }
+
+Fixed &min(Fixed &u, Fixed &v)
+{
+    return (u < v ? u : v);
+}
+
+Fixed &max(Fixed &u, Fixed &v)
+{
+    return (u > v ? u : v);
+}
+// =============================================================================
+

@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 18:48:33 by rchallie          #+#    #+#             */
-/*   Updated: 2020/10/03 00:53:23 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/05 20:49:52 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,14 @@ ZombieHorde::ZombieHorde(int n)
 {
     
     int     random;
-    
+
+    if (n <= 0 || n >= 2147483647)
+    {
+        std::cout << "Invalid number of zombies" << std::endl;
+        std::cout << "Set size to default : 1" << std::endl;
+        n = 1;
+    }
+
     this->_zombies = new Zombie[n];
     this->_nbr_zomzom = n;
     srand(time(NULL));

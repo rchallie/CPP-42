@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 17:06:13 by rchallie          #+#    #+#             */
-/*   Updated: 2020/10/03 00:44:37 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/05 20:44:59 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Zombie::Zombie()
 */
 Zombie::Zombie(std::string type, std::string name)
 :
-    _type(type),
-    _name(name)
+    _name(name),
+    _type(type)
 {}
 
 /*

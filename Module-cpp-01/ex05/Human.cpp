@@ -51,7 +51,7 @@ Human &Human::operator=(const Human& op)
 /*
 ** @brief Getter of the brain of the human.
 */
-Brain       *Human::getBrain() { return (this->_brain); }
+Brain       &Human::getBrain() { return (*this->_brain); }
 
 // =============================================================================
 
@@ -60,5 +60,5 @@ Brain       *Human::getBrain() { return (this->_brain); }
 /*
 ** @brief Call brain to get is identifier.
 */
-std::string Human::identify() { return (this->_brain->identify()); }
+std::string Human::identify() { return (this->getBrain().identify()); }
 // =============================================================================

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 18:23:29 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/18 14:06:34 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/10/06 00:12:09 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,16 @@ int main()
 
     std::cout << f << std::endl;
     std::cout << Fixed::max(e, f) << std::endl;
+
+    Fixed h(48.6874f);
+    Fixed j(Fixed(8.14f) * Fixed(2));
+    std::cout << h << std::endl;
+    std::cout << ++h << std::endl;
+    std::cout << h << std::endl;
+    std::cout << h++ << std::endl;
+    std::cout << h << std::endl;
+
+    std::cout << j << std::endl;
+    std::cout << max(h, j) << std::endl;
+    
 }

@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 17:19:29 by rchallie          #+#    #+#             */
-/*   Updated: 2020/10/03 00:41:27 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/05 20:41:43 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ Zombie *ZombieEvent::randomChump()
     if (this->_type == "")
         this->_type = "Chump";
     rtn = newZombie(name_list[random]);
-    rtn->advert();
+    rtn->announce();
     return (rtn);
 }
 // =============================================================================

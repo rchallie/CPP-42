@@ -30,7 +30,7 @@ class Human
         virtual ~Human();
         Human &operator=(const Human& op);
 
-        Brain       *getBrain();
+        Brain       &getBrain();
     
         std::string identify();
 
