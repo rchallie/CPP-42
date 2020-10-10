@@ -1,12 +1,16 @@
 # ✅ Modules CPP
 Module CPP (42cursus) 2019-2020
 
+- Module 00 :
+  - Actual Status : Finished
+  - Result        : 100%
 - Module 01 :
   - Actual Status : Finished
   - Result        : 100%
 - Module 02 :
-  - Actual Status : Finished
-  - Result        : 100%
+  - Actual Status : In progress
+  - Result        : NULL
+  - Observations  : See float to fixed like 42,3 * 10 = 423 but with power of 2 instead of multiply with 10 (more efficient for computer)
 - Module 03 :
   - Actual Status : In progress
   - Result        : NULL
