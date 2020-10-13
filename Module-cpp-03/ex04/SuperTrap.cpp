@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperTrap.cpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 19:22:00 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/12 22:48:42 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "SuperTrap.hpp"
 
+/*
+** @brief Default contructor:
+** The "SuperTrap".
+*/
 SuperTrap::SuperTrap() 
 :
-    ClapTrap(), FragTrap(), NinjaTrap()
+    ClapTrap(),
+    FragTrap(),
+    NinjaTrap()
 {}
 
+/*
+** @brief Init contrcutor:
+** The "SuperTrap".
+*/
 SuperTrap::SuperTrap(std::string name)
 :
     ClapTrap(
@@ -30,33 +40,41 @@ SuperTrap::SuperTrap(std::string name)
         30,
         5
     ),
-    FragTrap(
-        name
-    ),
-    NinjaTrap(
-        name
-    )
+    FragTrap(name),
+    NinjaTrap(name)
 {
+	_print_suffix(getName(), getHitPoints());
     std::cout << "Super Trap created" << std::endl;
 }
 
-SuperTrap::SuperTrap(const SuperTrap& op) { *this = op; }
-SuperTrap::~SuperTrap() {}
+/*
+** @brief Copy:
+** Copy the "SuperTrap".
+** 
+** @param copy the "SuperTrap" to copy.
+*/
+SuperTrap::SuperTrap(const SuperTrap& op)
+:
+    ClapTrap(op)
+{
+	_print_suffix(getName(), getHitPoints());
+    std::cout << "Super Trap Copied !" << std::endl;
+}
+
+/*
+** @brief Destructor:
+** Called when the object "SuperTrap" is delete
+*/
+SuperTrap::~SuperTrap()
+{
+    _print_suffix(getName(), getHitPoints());
+    std::cout << "Super Trap Destroyed !" << std::endl;
+}
+
 SuperTrap & SuperTrap::operator=(const SuperTrap& op)
 {
     if (this == &op)
-        return (*this); 
+        return (*this);
+    ClapTrap::operator=(op);
     return (*this);
-}
-
-void		SuperTrap::rangedAttack(std::string const & target)
-{
-	_print_suffix(getName(), getHitPoints());
-	std::cout << "J'urine des arcs-en-ciel sur toi \033[1;34m" << target << "\033[0m, \033[1;33m" << getRangedAttackDamage() << "\033[0m de ta décadante vie en moins dans ta face !" << std::endl;
-}
-
-void		SuperTrap::meleeAttack(std::string const & target)
-{
-	_print_suffix(getName(), getHitPoints());
-	std::cout << "Ninja ! Ninja ! NIIIIIIINJA, coup direct sur \033[1;34m" << target <<"\033[0m. Direct in the carotine pour un total de \033[1;33m" << getMeleeAttackDamage() << "\033[0m dégats ! " << std::endl;
 }

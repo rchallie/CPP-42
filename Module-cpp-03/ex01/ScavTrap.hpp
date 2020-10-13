@@ -3,23 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 18:04:31 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/12 22:39:45 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
+// LIBS ========================================================================
 #include <iostream>
 #include <string>
-// #include <cstdlib>
+#include <stdlib.h>
 #include <time.h>
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class ScavTrap;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class ScavTrap
 {
 	private:
@@ -37,7 +42,7 @@ class ScavTrap
 		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap&);
-		~ScavTrap();
+		virtual ~ScavTrap();
 		ScavTrap &operator=(const ScavTrap& op);
 		void			rangedAttack(std::string const & target);
 		void			meleeAttack(std::string const & target);
@@ -45,5 +50,9 @@ class ScavTrap
 		void			beRepaired(unsigned int amount);
 		void			challengeNewcomer(std::string const & target);
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif

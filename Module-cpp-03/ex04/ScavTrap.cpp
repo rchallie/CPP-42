@@ -3,21 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 18:28:34 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/12 21:20:34 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+/*
+** Typedef for array of pointers on functions.
+*/
 typedef void(ScavTrap::* attacks) (std::string const & target);
 
+/*
+** @brief Default contructor:
+** The "ScavTrap".
+*/
 ScavTrap::ScavTrap()
 :	ClapTrap(0,0,0,0,0,"",0,0,0)
-{ srand(time(NULL)); }
+{
+	srand(time(NULL));
+	_print_suffix(this->_name, this->_hit_points);
+	std::cout << "Le champion fait son apparition." << std::endl;
+}
 
+/*
+** @brief Init contrcutor:
+** The "ScavTrap".
+*/
 ScavTrap::ScavTrap(std::string name)
 :	ClapTrap(
 	100,
@@ -36,12 +51,25 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "Le champion fait son apparition." << std::endl;
 }
 
+/*
+** @brief Copy:
+** Copy the "ScavTrap".
+** 
+** @param copy the "ScavTrap" to copy.
+*/
 ScavTrap::ScavTrap(const ScavTrap& op)
+:
+	ClapTrap(op)
 {
 	srand(time(NULL));
-	*this = op;
+	_print_suffix(this->_name, this->_hit_points);
+	std::cout << "Copie de ScavTrap : " << op._name << " , faite!" << std::endl;
 }
 
+/*
+** @brief Destructor:
+** Called when the object "ScavTrap" is delete
+*/
 ScavTrap::~ScavTrap()
 {
 	_print_suffix(getName(), getHitPoints());
@@ -56,18 +84,9 @@ ScavTrap & ScavTrap::operator=(const ScavTrap& op)
 	return (*this);
 }
 
-void		ScavTrap::rangedAttack(std::string const & target)
-{
-	_print_suffix(getName(), getHitPoints());
-	std::cout << "Ratattattattatta! Powpowpowpow! Powpowpowpow! Pew-pew, pew-pew-pewpew! \033[1;34m" << target << "\033[0m, \033[1;33m" << getRangedAttackDamage() << "\033[0m de dégats dans tes dents !" << std::endl;
-}
-
-void		ScavTrap::meleeAttack(std::string const & target)
-{
-	_print_suffix(getName(), getHitPoints());
-	std::cout << "Oh sacrément, oh garçon, oh merde, oh \033[1;34m" << target <<"\033[0m , oh sacrément désolé pour les \033[1;33m" << getMeleeAttackDamage() << "\033[0m dégats de mon livre sacré dans ta gueule!" << std::endl;
-}
-
+/*
+** @brief Challenge target randomly ! 
+*/
 void		ScavTrap::challengeNewcomer(std::string const & target)
 {
 	std::string challenges_list[] = {
@@ -81,6 +100,14 @@ void		ScavTrap::challengeNewcomer(std::string const & target)
 		" , prend cette coque en kevlar et on vas voir si elle arrête les coups de couteau. Okay?",
 		" , cap, tu construit un parachute avec tes boulons et tu saute du prochaine avion ?"
 	};
+
+	if (getEnergyPoints() < 25)
+	{
+		_print_suffix(getName(), getHitPoints());
+		std::cout << "Oh je me sent faible... je vais peut-être faire une petite sieste nan ?" << std::endl;
+		return;
+	}
 	_print_suffix(getName(), getHitPoints());
 	std::cout << "\033[1;34m" << target << "\033[0m" << challenges_list[rand() % 9] << std::endl;
+	this->_energy_points -= 25;
 }

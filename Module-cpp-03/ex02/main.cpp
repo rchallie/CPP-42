@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 15:38:34 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 21:53:31 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/18 15:38:34 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/12 21:20:47 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,27 @@
 int main()
 {
 	std::cout << std::endl;
-    ScavTrap clap("Clap");
-    ScavTrap trap("Trap");
-    FragTrap frag("Frag");
-    FragTrap prap;
-
-    prap = frag;
+    ScavTrap clap("Michel");
+    ScavTrap trap("Pavlov");
+    FragTrap frag("Erneste");
     
 	std::cout << std::endl;
-    clap.rangedAttack("Trap");
+    clap.rangedAttack("Pavlov");
     trap.takeDamage(20);
-    clap.meleeAttack("Trap");
+    clap.meleeAttack("Pavlov");
     trap.takeDamage(30);
     trap.beRepaired(35);
-    frag.rangedAttack("Clap");
+    frag.rangedAttack("Michel");
     trap.beRepaired(80);
     trap.takeDamage(120);
     frag.beRepaired(7);
     trap.beRepaired(33);
     frag.takeDamage(10);
     
-    frag.vaulthunter_dot_exe("Clap");
-    clap.challengeNewcomer("Trap");
-    clap.challengeNewcomer("Trap");
-    clap.challengeNewcomer("Trap");
-    clap.challengeNewcomer("Trap");
-
+    frag.vaulthunter_dot_exe("Michel");
+    clap.challengeNewcomer("Pavlov");
+    clap.challengeNewcomer("Pavlov");
+    clap.challengeNewcomer("Pavlov");
     
 	std::cout << std::endl;
     return (0);

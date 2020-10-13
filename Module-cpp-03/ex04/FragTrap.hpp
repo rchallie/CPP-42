@@ -3,48 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 18:24:28 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/12 22:44:01 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-# include <iostream>
-# include <string>
-// # include <cstdlib>
-# include <time.h>
-
+// LIBS ========================================================================
 # include "ClapTrap.hpp"
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class FragTrap;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class FragTrap : virtual public ClapTrap
 {
 	private:
-		unsigned int	_math_attack_damage;
-		unsigned int	_question_attack_damage;
-		unsigned int	_danse_attack_damage;
-		unsigned int	_lost_attack_damage;
-		unsigned int	_monologue_attack_damage;
-
-	public:
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(const FragTrap&);
-		~FragTrap();
-		FragTrap &operator=(const FragTrap& op);
-		void			rangedAttack(std::string const & target);
-		void			meleeAttack(std::string const & target);
-		void			vaulthunter_dot_exe(std::string const & target);
 		void			mathAttack(std::string const & target);
 		void			questionAttack(std::string const & target);
 		void			danseAttack(std::string const & target);
 		void			lostAttack(std::string const & target);
 		void			monologueAttack(std::string const & target);
+
+	public:
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(const FragTrap&);
+		virtual ~FragTrap();
+		FragTrap &operator=(const FragTrap& op);
+		void			vaulthunter_dot_exe(std::string const & target);
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif

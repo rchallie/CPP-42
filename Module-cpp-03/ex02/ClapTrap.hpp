@@ -3,26 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 18:06:40 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/12 22:39:37 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-# include <iostream>
-# include <string>
-// # include <cstdlib>
-# include <time.h>
+// LIBS ========================================================================
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <time.h>
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class ClapTrap;
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class ClapTrap
 {
-    private:
+    protected:
 		unsigned int	_hit_points;
 		unsigned int	_max_hit_points;
 		unsigned int	_energy_points;
@@ -49,7 +54,7 @@ class ClapTrap
 			);
         
 		ClapTrap(const ClapTrap&);              
-        ~ClapTrap();
+        virtual ~ClapTrap();
         ClapTrap &operator=(const ClapTrap& op);
 
 		unsigned int		getHitPoints(void);
@@ -72,10 +77,15 @@ class ClapTrap
 		void				setRangedAttackDamage(unsigned int ranged_attack_damage);
 		void				setArmorDamageReduction(unsigned int armor_damage_reduction);	
 
+		void				rangedAttack(std::string const & target);
+		void				meleeAttack(std::string const & target);
 		void				takeDamage(unsigned int amount);
 		void				beRepaired(unsigned int amount);
 };
+// =============================================================================
 
+// FUNCTIONS PROTOYPES =========================================================
 void _print_suffix(const std::string& name, unsigned int hp);
+// =============================================================================
 
 #endif

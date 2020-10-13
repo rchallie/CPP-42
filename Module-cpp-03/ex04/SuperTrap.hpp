@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperTrap.hpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/17 16:58:39 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/12 22:37:21 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SUPERTRAP_HPP
 # define SUPERTRAP_HPP
 
+// LIBS ========================================================================
 # include <iostream>
 # include <string>
-
 # include "FragTrap.hpp"
 # include "NinjaTrap.hpp"
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class SuperTrap;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class SuperTrap : public FragTrap, public NinjaTrap
 {
     public:
         SuperTrap();
         SuperTrap(std::string name);            
         SuperTrap(const SuperTrap&);             
-        ~SuperTrap();                         
+        virtual ~SuperTrap();                         
         SuperTrap &operator=(const SuperTrap& op);
-        void rangedAttack(std::string const & target);
-        void meleeAttack(std::string const & target);
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif
