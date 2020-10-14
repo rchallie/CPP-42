@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                       :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 19:19:39 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 21:08:25 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ std::string const &	Character::getName(void) const { return (this->_name); }
 
 // ADDITIONNAL =================================================================
 
-/**type
+/**
  * @brief Add a "AMateria" to the "Character" inventory.
  * If the inventory is full, nothing will be done.
  * 

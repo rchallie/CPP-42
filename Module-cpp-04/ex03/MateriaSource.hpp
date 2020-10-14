@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/25 10:18:10 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 21:21:13 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class MateriaSource : public IMateriaSource
         // Coplien
         MateriaSource();
         MateriaSource(const MateriaSource&);
-        ~MateriaSource();
+        virtual ~MateriaSource();
         MateriaSource &operator=(const MateriaSource& op);
 
         // Getter - Setter

@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Squad.cpp                                       :+:      :+:    :+:   */
+/*   Squad.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 19:22:00 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 20:54:03 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Squad.hpp"
 
+/*
+** @brief Default contructor:
+** The "Squad".
+*/
 Squad::Squad()
 :
     _units_count(0),
     _units_list(NULL)
 {}
 
+/*
+** @brief Deep Copy:
+** Deep Copy the "Squad".
+** 
+** @param copy the "Squad" to copy.
+*/
 Squad::Squad(const Squad& op)
 {
     t_units *units;
@@ -47,6 +57,10 @@ Squad::Squad(const Squad& op)
     delete op._units_list;
 }
 
+/*
+** @brief Destructor:
+** Called when the object "Squad" is delete
+*/
 Squad::~Squad()
 {
     t_units *next;
@@ -54,7 +68,6 @@ Squad::~Squad()
     for(int i = 0; i < this->getCount(); i++)
     {
         next = this->_units_list->_next;
-        std::cout << "unit battle cry = "; this->_units_list->_unit->battleCry();
         delete this->_units_list->_unit;
         delete this->_units_list;
         this->_units_list = next;
@@ -65,16 +78,21 @@ Squad & Squad::operator=(const Squad& op)
 {
     if (this == &op)
         return (*this);
+    this->_units_count = op._units_count;
+    this->_units_list = op._units_list;
     return (*this);
 }
 
 // Getter / Setter
 
-/**
- * Return number of units was in squad.
- */
+/*
+** @brief Return number of units was in squad.
+*/
 int                 Squad::getCount() const { return (_units_count); }
 
+/*
+** @brief Get an unit by his index.
+*/
 ISpaceMarine*       Squad::getUnit(int index) const
 {
     t_units         *units;
@@ -94,6 +112,9 @@ ISpaceMarine*       Squad::getUnit(int index) const
     return (NULL);
 }
 
+/*
+** @brief Add an unit to the squad.
+*/
 int                 Squad::push(ISpaceMarine* spacemarine)
 {
     int             i;

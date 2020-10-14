@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/25 10:18:10 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 21:08:42 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Character : public ICharacter
         // Coplien
         Character(std::string const & name);
         Character(const Character&);
-        ~Character();
+        virtual ~Character();
         Character &operator=(const Character& op);
 
         // Getter - Setter

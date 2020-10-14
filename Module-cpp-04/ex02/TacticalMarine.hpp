@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TacticalMarine.hpp                                       :+:      :+:    :+:   */
+/*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/17 16:58:39 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 20:43:06 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TACTICALMARINE_HPP
 # define TACTICALMARINE_HPP
 
+// LIBS ========================================================================
 # include <iostream>
-
 # include "ISpaceMarine.hpp"
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class TacticalMarine;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class TacticalMarine : public ISpaceMarine
 {
     public:
         TacticalMarine();
         TacticalMarine(const TacticalMarine&);
-        ~TacticalMarine();
+        virtual ~TacticalMarine();
         TacticalMarine &operator=(const TacticalMarine& op);
 
         // Additionnal
@@ -33,5 +37,9 @@ class TacticalMarine : public ISpaceMarine
         void            rangedAttack() const;
         void            meleeAttack() const;  
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif

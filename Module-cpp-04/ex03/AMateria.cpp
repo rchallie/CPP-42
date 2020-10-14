@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 13:17:24 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 21:28:31 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ AMateria::AMateria(std::string const & type)
 
 AMateria::AMateria(const AMateria& copy)
 :
-	_type(copy.getType()),
+	_type(copy._type),
 	_xp(copy.getXP())
 {}
 

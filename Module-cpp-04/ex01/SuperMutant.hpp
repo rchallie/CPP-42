@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperMutant.hpp                                       :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/17 16:58:39 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/13 22:37:31 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SUPERMUTANT_HPP
 # define SUPERMUTANT_HPP
 
+// LIBS ========================================================================
 # include "Enemy.hpp"
+// =============================================================================
 
+// PROTOTYPES ==================================================================
 class SuperMutant;
+// =============================================================================
 
+// CLASSES DEFINITIONS =========================================================
 class SuperMutant : public Enemy
 {
     public:
         SuperMutant();
         SuperMutant(const SuperMutant&);
-        ~SuperMutant();
+        virtual ~SuperMutant();
         SuperMutant &operator=(const SuperMutant& op);
         
         // Additionnal
         void        takeDamage(int amount);
 };
+// =============================================================================
+
+// FUNCTIONS PROTOYPES =========================================================
+// =============================================================================
 
 #endif

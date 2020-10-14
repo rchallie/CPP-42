@@ -3,25 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   Sorcerer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 18:39:08 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/13 21:41:17 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
 
+/*
+** @brief Default contructor:
+** The "Sorcerer".
+*/
+Sorcerer::Sorcerer()
+:
+    _name(),
+    _title()
+{
+    std::cout << this->_name << ", " << this->_title << " is born !" << std::endl;
+}
+
+/*
+** @brief Init contrcutor:
+** The "Sorcerer".
+*/
 Sorcerer::Sorcerer(const std::string & name, const std::string & title)
 :
     _name(name),
     _title(title)
 {
-    std::cout << name << ", " << title << " is born !" << std::endl;
+    std::cout << this->_name << ", " << this->_title << " is born !" << std::endl;
 }
 
-Sorcerer::Sorcerer(const Sorcerer& copy) { *this = copy; }
+/*
+** @brief Copy:
+** Copy the "Sorcerer".
+** 
+** @param copy the "Sorcerer" to copy.
+*/
+Sorcerer::Sorcerer(const Sorcerer& copy)
+:
+    _name(copy._name),
+    _title(copy._name)
+{}
 
+/*
+** @brief Destructor:
+** Called when the object "Sorcerer" is delete
+*/
 Sorcerer::~Sorcerer()
 {
     std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same!" << std::endl;
@@ -41,12 +71,18 @@ std::string     Sorcerer::getName(void) const { return (this->_name); }
 std::string     Sorcerer::getTitle(void) const { return (this->_title); }
 
 // ADDITIONNAL
+
+/*
+** @brief Polymorph the victim.
+*/
 void            Sorcerer::polymorph(Victim const & victim)
 {
     victim.getPolymorphed();
 }
 
-
+/*
+** @brief Overload for output.
+*/
 std::ostream    &operator<<(std::ostream & out, const Sorcerer & sorcerer)
 {
     out << "I am " << sorcerer.getName() << ", " << sorcerer.getTitle();

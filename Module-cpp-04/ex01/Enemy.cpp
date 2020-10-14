@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                       :+:      :+:    :+:   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 19:22:00 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/13 22:38:20 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Enemy.hpp"
 
+/*
+** @brief Init contrcutor:
+** The "Enemy".
+*/
 Enemy::Enemy(int hp, std::string const & type)
 :
     _hp(hp),
     _type(type)
 {}
 
-Enemy::Enemy(const Enemy& copy) { *this = copy; }
+/*
+** @brief Copy:
+** Copy the "Enemy".
+** 
+** @param copy the "Enemy" to copy.
+*/
+Enemy::Enemy(const Enemy& copy)
+:
+    _hp(copy._hp),
+    _type(copy._type)
+{}
 
+/*
+** @brief Destructor:
+** Called when the object "Enemy" is delete
+*/
 Enemy::~Enemy() {}
 
 Enemy & Enemy::operator=(const Enemy& op)
@@ -35,7 +53,9 @@ Enemy & Enemy::operator=(const Enemy& op)
 int             Enemy::getHP(void) const { return (this->_hp); }
 std::string     Enemy::getType(void) const { return (this->_type); }
 
-
+/*
+** @brief Remove some life to the Enemy.
+*/
 void    Enemy::takeDamage(int amount)
 {
     if (amount < 0)

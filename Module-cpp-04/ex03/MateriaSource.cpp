@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.cpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 19:19:39 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 21:21:42 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ MateriaSource::~MateriaSource()
 MateriaSource & MateriaSource::operator=(const MateriaSource& op)
 {
 	if (this == &op)
-		return (*this); 
+		return (*this);
+	for (int i = 0; i < 4; i++)
+		if (op._templates[i])
+			this->_templates[i] = op._templates[i];
 	return (*this);
 }
 // =============================================================================
@@ -72,10 +75,6 @@ void		MateriaSource::learnMateria(AMateria* m)
  */
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	std::cout << "Template : " << this->_templates[i]->getType() << std::endl;
-	// }
 	for (int i = 0; i < 4; i++)
 		if (this->_templates[i] != NULL
 			&& this->_templates[i]->getType() == type)

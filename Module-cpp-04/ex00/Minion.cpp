@@ -1,17 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Minion.cpp                                       :+:      :+:    :+:   */
+/*   Minion.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/19 19:22:00 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie         #+#    #+#             */
+/*   Updated: 2020/10/13 22:07:08 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Minion.hpp"
 
+/*
+** @brief Default contructor:
+** The "Pony".
+*/
+Minion::Minion()
+:
+    Victim()
+{
+    std::cout << "Prêt à servir de souffre douleur." << std::endl;
+}
+
+/*
+** @brief Init contrcutor:
+** The "Pony".
+*/
 Minion::Minion(const std::string & name)
 :
     Victim(
@@ -21,13 +36,23 @@ Minion::Minion(const std::string & name)
     std::cout << "Prêt à servir de souffre douleur." << std::endl;
 }
 
+/*
+** @brief Copy:
+** Copy the "Pony".
+** 
+** @param copy the "Pony" to copy.
+*/
 Minion::Minion(const Minion & copy)
 :
     Victim (
         copy
     )
-{ *this = copy; }
+{}
 
+/*
+** @brief Destructor:
+** Called when the object "Pony" is delete
+*/
 Minion::~Minion()
 {
     std::cout << "Je délivre quelques PO..." << std::endl;
@@ -36,11 +61,16 @@ Minion::~Minion()
 Minion & Minion::operator=(const Minion& op)
 {
     if (this == &op)
-        return (*this); 
+        return (*this);
+    Victim::operator=(op);
     return (*this);
 }
 
 // Additionnal
+
+/*
+** @brief Polymorphed the Minion.
+*/
 void    Minion::getPolymorphed(void) const
 {
     std::cout << getName() << " was just polymorphed into a big TANK!" << std::endl;
