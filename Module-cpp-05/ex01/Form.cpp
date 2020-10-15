@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                       :+:      :+:    :+:   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 16:10:38 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 22:21:09 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ Form::GradeTooHighException::GradeTooHighException() throw() {}
  * 
  * @param copy the "GradeTooHighException" to copy.
  */
-Form::GradeTooHighException::GradeTooHighException(const GradeTooHighException& copy) throw() { (void)copy; }
+Form::GradeTooHighException::GradeTooHighException(const GradeTooHighException&) throw() {}
 
 /**
  * @brief Destructor:
@@ -168,7 +168,7 @@ Form::GradeTooLowException::GradeTooLowException() throw() {}
  * 
  * @param copy the "GradeTooLowException" to copy.
  */
-Form::GradeTooLowException::GradeTooLowException(const GradeTooLowException& copy) throw() { (void)copy; }
+Form::GradeTooLowException::GradeTooLowException(const GradeTooLowException&) throw() {}
 
 /**
  * @brief Destructor:

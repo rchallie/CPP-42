@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/27 10:09:34 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/15 16:29:33 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class PresidentialPardonForm;
 // CLASS DEFINITIONS ===========================================================
 class PresidentialPardonForm : public Form
 {
+    private:
+        void        beExecuted() const;
+
     public:
         // Coplien
         PresidentialPardonForm(std::string const & target);
@@ -36,7 +39,6 @@ class PresidentialPardonForm : public Form
         // Getter - Setter
 
         // Additionnal
-        void        beExecuted() const;
 
         // Exceptions
 };

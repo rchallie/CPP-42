@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                       :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/24 19:19:39 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 22:16:34 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ Bureaucrat::GradeTooHighException::GradeTooHighException() throw() {}
  * 
  * @param copy the "GradeTooHighException" to copy.
  */
-Bureaucrat::GradeTooHighException::GradeTooHighException(const GradeTooHighException& copy) throw() { (void)copy; }
+Bureaucrat::GradeTooHighException::GradeTooHighException(const GradeTooHighException&) throw() {}
 
 /**
  * @brief Destructor:
@@ -152,7 +152,7 @@ Bureaucrat::GradeTooLowException::GradeTooLowException() throw() {}
  * 
  * @param copy the "GradeTooLowException" to copy.
  */
-Bureaucrat::GradeTooLowException::GradeTooLowException(const GradeTooLowException& copy) throw() { (void)copy; }
+Bureaucrat::GradeTooLowException::GradeTooLowException(const GradeTooLowException&) throw() {}
 
 /**
  * @brief Destructor:

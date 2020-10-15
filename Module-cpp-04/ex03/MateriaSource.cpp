@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
-/*   Updated: 2020/10/14 21:21:42 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/15 21:53:40 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,10 @@ void		MateriaSource::learnMateria(AMateria* m)
  */
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	std::cout << "Template : " << this->_templates[i]->getType() << std::endl;
+	// }
 	for (int i = 0; i < 4; i++)
 		if (this->_templates[i] != NULL
 			&& this->_templates[i]->getType() == type)

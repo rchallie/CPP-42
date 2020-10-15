@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/26 15:33:15 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 18:56:31 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/26 15:33:15 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 22:14:23 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
     {
         std::cout << *bureaucrat;
         bureaucrat->upGrade();
-        std::cout << bureaucrat->getName() << " upgraded ! Felicitation! " << std::endl;
+        std::cout << bureaucrat->getName() << " upgraded ! Felicitations! " << std::endl;
         std::cout << *bureaucrat;
         bureaucrat->upGrade();
         std::cerr << "[+][1] Exception does'nt work nicely. " << std::endl;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                                       :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 19:16:08 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/15 21:15:41 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target)
 :
 	Form(
-		"Shrubbery",
+		"ShrubberyCreationForm",
 		145,
 		137,
 		target
@@ -37,12 +37,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target)
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
 :
 	Form(
-		copy.getName(),
-		copy.getSignGrade(),
-		copy.getExecGrade(),
-		copy.getTarget()
+		copy
 	)
-{ *this = copy; }
+{}
 
 /**
  * @brief Destructor:
@@ -66,15 +63,14 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
 // ADDITIONNAL =================================================================
 
 /**
- * @brief print a tree in <"Bureaucrat"name>_shrubbery.
- * 
- * @param executor the "Bureaucrat" that execute the "Form".
+ * @brief print a tree in <_target>_shrubbery.
  */
 void					ShrubberyCreationForm::beExecuted() const
 {
 	std::ofstream file;
 
-	file.open(this->getTarget() + "_shrubbery", std::ios::out | std::ios::app);
+	file.open(std::string(this->getTarget() + "_shrubbery").c_str(),
+		std::ios::out | std::ios::app);
 	if(file.is_open())
 	{
 		file << "                 # #### ####			" << std::endl;

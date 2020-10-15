@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/26 21:57:15 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/27 10:44:29 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/26 21:57:15 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/15 21:30:39 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 # include "RobotmyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
+
+static void testForm(Bureaucrat* bur, Form* form)
+{
+    std::cout << std::endl << "Sign & Execute \033[33m" << form->getName() << "\033[0m : " << std::endl;
+    bur->signForm(*form);
+    bur->executeForm(*form);
+}
 
 int main()
 {
@@ -24,15 +31,16 @@ int main()
     Bureaucrat* james = new Bureaucrat("James", 33);
     Bureaucrat* meg = new Bureaucrat("Meg", 1);
 
-    bob->signForm(*shrub);
-    bob->executeForm(*shrub);
+    std::cout << "\033[31mNormal\033[0m tests : " << std::endl;
 
-    james->signForm(*robot);
-    james->executeForm(*robot);
+    testForm(bob, shrub);
+    testForm(james, robot);
+    testForm(meg, pardon);
 
-    meg->signForm(*pardon);
-    meg->executeForm(*pardon);
-    
+    std::cout << std::endl << "\033[31mAlreadySigned & ToLow\033[0m tests : " << std::endl;
+
+    testForm(bob, pardon);
+
     delete shrub;
     delete robot;
     delete pardon;
@@ -40,6 +48,6 @@ int main()
     delete bob;
     delete james;
     delete meg;
-    
+
     return (0);
 }

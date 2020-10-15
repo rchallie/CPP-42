@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.cpp                                       :+:      :+:    :+:   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/27 10:46:41 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/15 21:45:08 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ Form*		Intern::makeForm(std::string const & form_name, std::string const & targe
 	typedef struct { std::string form_name; func func; } FormTypes;
 	
 	rtn = NULL;
-	FormTypes	forms[]
+	FormTypes	forms[] = 
 	{
 		{"presidential pardon", &createPresidentialPardonForm},
 		{"robotomy request", &createRobotomyRequestForm},
@@ -71,12 +71,11 @@ Form*		Intern::makeForm(std::string const & form_name, std::string const & targe
 	for (int i = 0; i < 3; i++)
 		if (forms[i].form_name == form_name)
 		{
-			std::cout << "[+] >> I = " << i << std::endl; 
 			rtn = forms[i].func(target);
-			std::cout << "Inter creates " << rtn->getName() << std::endl;
+			std::cout << "Intern creates " << rtn->getName() << std::endl;
 			return (rtn);
 		}
-	std::cout << "Inter is not able to create the form asked." << std::endl;
+	std::cout << "Intern is not able to create the form asked." << std::endl;
 	return (rtn);
 }
 

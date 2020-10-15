@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                                       :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 19:16:08 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/15 21:15:54 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 PresidentialPardonForm::PresidentialPardonForm(std::string const & target)
 :
 	Form(
-		"President",
+		"PresidentialPardonForm",
 		25,
 		5,
 		target
@@ -42,7 +42,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cop
 		copy.getExecGrade(),
 		copy.getTarget()
 	)
-{ *this = copy; }
+{}
 
 /**
  * @brief Destructor:

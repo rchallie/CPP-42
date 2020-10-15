@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/26 18:41:46 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 20:03:51 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/26 18:41:46 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 22:28:11 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,7 @@ int main()
     nopper->signForm(*nop);
     
     delete constitution;
+    delete bob;
+    delete nop;
+    delete nopper;
 }

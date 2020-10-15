@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                       :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 16:35:58 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 23:26:41 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Form
         int             _requiered_sign_grade;
         int             _requiered_exec_grade;
         std::string     _target;
+        virtual void        beExecuted() const;
 
     public:
         // Coplien
@@ -51,7 +52,6 @@ class Form
 
         // Additionnal
         void                beSigned(const Bureaucrat & bureaucrat);
-        virtual void        beExecuted() const;
         void                execute(Bureaucrat const & executor) const;
 
         // Exceptions

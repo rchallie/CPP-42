@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                                       :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:33:03 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/26 16:35:58 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:33:03 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/14 23:27:11 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class ShrubberyCreationForm;
 // CLASS DEFINITIONS ===========================================================
 class ShrubberyCreationForm : public Form
 {
+    private:
+        void        beExecuted() const;
+
     public:
         // Coplien
         ShrubberyCreationForm(std::string const & target);
@@ -36,7 +39,6 @@ class ShrubberyCreationForm : public Form
         // Getter - Setter
 
         // Additionnal
-        void        beExecuted() const;
 
         // Exceptions
 };
