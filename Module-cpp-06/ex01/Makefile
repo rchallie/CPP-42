@@ -5,11 +5,11 @@ NAME = convert
 # SRCS =====================================================================================
 SRCS_DIR = srcs/
 
-SRCS =	main.cpp		\
-		serializer.cpp
+SRCS_LINUX =	main.cpp		\
+				serializer_linux.cpp
 
-EXPLICIT_SRCS =	main.cpp		\
-				explicit_serializer.cpp
+EXPLICIT_SRCS_LINUX =	main.cpp		\
+						explicit_serializer_linux.cpp
 # ==========================================================================================
 
 # INCLUDES =================================================================================
@@ -28,10 +28,10 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDE)
 # OBJS =====================================================================================
 OBJS_DIR 	= 	objs/
 
-OBJ 		= 	$(SRCS:.cpp=.o)
+OBJ 		= 	$(SRCS_LINUX:.cpp=.o)
 OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
 
-EXPLICIT_OBJ 		= 	$(EXPLICIT_SRCS:.cpp=.o)
+EXPLICIT_OBJ 		= 	$(EXPLICIT_SRCS_LINUX:.cpp=.o)
 EXPLICIT_OBJS 		= 	$(addprefix $(OBJS_DIR), $(EXPLICIT_OBJ))
 
 # ==========================================================================================
@@ -66,7 +66,7 @@ re: fclean all
 
 # SUP ======================================================================================
 
-explicit:  $(EXPLICIT_OBJS)
+explicit_linux:  $(EXPLICIT_OBJS)
 	@clang++ $(FLAGS) -o $(NAME) $(EXPLICIT_OBJS)
 	
 run:

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   explicit_serializer.cpp                            :+:      :+:    :+:   */
+/*   serializer_linux.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/29 13:03:32 by rchallie          #+#    #+#             */
-/*   Updated: 2020/10/16 00:41:50 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/16 23:28:17 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,16 @@
  */
 void *      serialize(void)
 {
-
-	srand(time(NULL));
-	char *   rtn = new char[20];
+	Data *data = new Data;
 	char	alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 
-	std::cout << "=== SERIALIZE ===" << std::endl;
+	srand(time(NULL));
 	for (int i = 0; i < 8; i++)
-		*(rtn + i) = alphabet[rand() % 25];
-	std::cout << "S1    = " << std::string(rtn, 8) << std::endl;
-	
-	*reinterpret_cast<int *>(rtn + 8) = rand() % 20000;
-	std::cout << "N     = " << *(reinterpret_cast<int *>(rtn) + 2) << std::endl;
-	
-	for (int i = 12; i < 20; i++)
-		*(rtn + i) = alphabet[rand() % 25];
-	std::cout << "S2    = " << std::string(rtn + 12, 8) << std::endl;
-	std::cout << "=================" << std::endl;
-
-	return (reinterpret_cast<void*>(rtn));
+		data->s1 += alphabet[rand() % 25];
+	data->n = rand() % 20000;
+	for (int i = 0; i < 8; i++)
+		data->s2 += alphabet[rand() % 25];
+	return (reinterpret_cast<void*>(data));
 }
 
 /**
@@ -53,8 +44,8 @@ Data *      deserialize(void * raw)
 {
 	Data *rtn = new Data;
 
-	rtn->s1 = std::string(reinterpret_cast<char *>(raw), 8);
-	rtn->n = *(reinterpret_cast<int *>(raw) + 2);
-	rtn->s2 = std::string(reinterpret_cast<char *>(raw) + 12, 8);
+	rtn->s1 = std::string(reinterpret_cast<char *>(raw) + 16, 8);
+	rtn->n = *(reinterpret_cast<int *>(raw) + 8);
+	rtn->s2 = std::string(reinterpret_cast<char *>(raw) + 56, 8);
 	return (rtn);
 }

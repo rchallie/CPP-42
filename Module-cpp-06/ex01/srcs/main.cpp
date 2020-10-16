@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/29 16:38:15 by rchallie          #+#    #+#             */
-/*   Updated: 2020/10/16 01:17:36 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/10/16 23:23:59 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int main()
 	std::cout << "N     = " << data->n << std::endl;
  	std::cout << "S2    = " << data->s2 << std::endl;
 
-    delete [] reinterpret_cast<char *>(raw);
+    delete reinterpret_cast<Data *>(raw);
 	delete data;
 }
