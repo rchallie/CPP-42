@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   inc.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/28 10:45:56 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/28 15:18:13 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/28 10:45:56 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/15 22:49:48 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEMPLATE_HPP
-# define TEMPLATE_HPP
+#ifndef INC_HPP
+# define INC_HPP
 
 // LIBS ========================================================================
 # include <iostream>

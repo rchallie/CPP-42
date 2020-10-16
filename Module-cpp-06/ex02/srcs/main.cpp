@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/29 18:43:53 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/29 19:06:52 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/29 18:43:53 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/16 01:22:49 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../incs/Base.hpp"
-# include "../incs/A.hpp"
-# include "../incs/B.hpp"
-# include "../incs/C.hpp"
+
 # include "../incs/incs.hpp"
 
 int main()

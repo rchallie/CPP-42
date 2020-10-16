@@ -42,7 +42,6 @@ $(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp $(INCS_DIR)
 	@clang++ $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	# @echo "y" | rm -r ~/Library/Caches/*; rm ~/.zcompdump*; brew cleanup
 	@clang++ -g -fsanitize=address $(FLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)

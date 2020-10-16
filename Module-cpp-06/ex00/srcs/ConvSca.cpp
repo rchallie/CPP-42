@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ConvSca.cpp                                       :+:      :+:    :+:   */
+/*   ConvSca.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 20:31:43 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/27 10:46:41 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/15 20:31:43 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/15 22:49:36 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ConvSca::ConvSca() {}
  * 
  * @param copy the "ConvSca" to copy.
  */
-ConvSca::ConvSca(const ConvSca& copy) { (void)copy; }
+ConvSca::ConvSca(const ConvSca&) {}
 
 /**
  * @brief Destructor:

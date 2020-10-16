@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/29 13:03:32 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/29 18:35:47 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/29 13:03:32 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/16 22:43:19 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,27 @@
  */
 void *      serialize(void)
 {
-	Data*	data = new Data;
-	char	alphabet[] = "abcdefghijklmnopqrstuvwxyz";
-	int		s1_len = 1 + rand() % 30;
-	int		s2_len = 1 + rand() % 30;
+	Data *plop = new Data;
 
-	for (int i = 0; i < s1_len; i++)
-		data->s1 += alphabet[rand() % 25];
-	data->n = rand() % 20000;
-	for (int i = 0; i < s2_len; i++)
-		data->s2 += alphabet[rand() % 25];
+	plop->s1 = std::string("abcdefg");
 	
-	return (data);
+	srand(time(NULL));
+	int *   rtn = new int[56];
+	char	alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+
+	std::cout << "S1 const = ";
+	for (int i = 0; i < 8; i++)
+	{
+		*(rtn + (i * 4)) = alphabet[rand() % 25];
+		std::cout << (char)*(rtn + (i * 4));
+	}
+	std::cout << std::endl;
+	*reinterpret_cast<int *>(rtn + 26) = rand() % 20000;
+	for (int i = 12; i < 20; i++)
+		*(rtn + i + 4) = alphabet[rand() % 25];
+
+	std::cout << "SIZE OF TEST = " << plop->s1.capacity() << std::endl;
+	return (reinterpret_cast<void*>(rtn));
 }
 
 /**
@@ -44,5 +53,15 @@ void *      serialize(void)
  */
 Data *      deserialize(void * raw)
 {
-	return (reinterpret_cast<Data*>(raw));
+	Data *rtn = new Data;
+
+	std::cout << "pLOP = " << reinterpret_cast<char *>(raw) << std::endl; 
+
+	rtn->s1 = std::string(reinterpret_cast<char *>(raw), 26);
+	std::cout << sizeof(rtn->s1) << std::endl;
+	rtn->n = *(reinterpret_cast<int *>(raw) + 26);
+	std::cout << sizeof(rtn->n) << std::endl;
+	rtn->s2 = std::string(reinterpret_cast<char *>(raw) + 30, 26);
+	std::cout << sizeof(rtn->s2) << std::endl;
+	return (rtn);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   explicit_serializer.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/29 13:03:32 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/29 18:41:09 by excalibur        ###   ########.fr       */
+/*   Created: 2020/03/29 13:03:32 by rchallie          #+#    #+#             */
+/*   Updated: 2020/10/16 00:41:50 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,25 @@
  */
 void *      serialize(void)
 {
-	srand(time(NULL));
 
-	Data*	data = new Data;
+	srand(time(NULL));
+	char *   rtn = new char[20];
 	char	alphabet[] = "abcdefghijklmnopqrstuvwxyz";
-	int		s1_len = 1 + rand() % 30;
-	int		s2_len = 1 + rand() % 30;
 
 	std::cout << "=== SERIALIZE ===" << std::endl;
-	for (int i = 0; i < s1_len; i++)
-		data->s1 = alphabet[rand() % 25];
-	std::cout << "S1    = " << data->s1 << std::endl;
-		
-	data->n = rand() % 20000;
-	std::cout << "N     = " << data->n << std::endl;
-
-	for (int i = 0; i < s2_len; i++)
-		data->s2 += alphabet[rand() % 25];
-	std::cout << "S2    = " << data->s2 << std::endl;
+	for (int i = 0; i < 8; i++)
+		*(rtn + i) = alphabet[rand() % 25];
+	std::cout << "S1    = " << std::string(rtn, 8) << std::endl;
+	
+	*reinterpret_cast<int *>(rtn + 8) = rand() % 20000;
+	std::cout << "N     = " << *(reinterpret_cast<int *>(rtn) + 2) << std::endl;
+	
+	for (int i = 12; i < 20; i++)
+		*(rtn + i) = alphabet[rand() % 25];
+	std::cout << "S2    = " << std::string(rtn + 12, 8) << std::endl;
 	std::cout << "=================" << std::endl;
-	return (data);
+
+	return (reinterpret_cast<void*>(rtn));
 }
 
 /**
@@ -52,5 +51,10 @@ void *      serialize(void)
  */
 Data *      deserialize(void * raw)
 {
-	return (reinterpret_cast<Data*>(raw));
+	Data *rtn = new Data;
+
+	rtn->s1 = std::string(reinterpret_cast<char *>(raw), 8);
+	rtn->n = *(reinterpret_cast<int *>(raw) + 2);
+	rtn->s2 = std::string(reinterpret_cast<char *>(raw) + 12, 8);
+	return (rtn);
 }

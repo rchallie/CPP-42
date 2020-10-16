@@ -22,7 +22,7 @@ DEPS = $(INCS_DIR)/
 
 # FLAGS ====================================================================================
 INCLUDE = -I$(INCS_DIR)
-FLAGS = -Wall -Wextra -Werror $(INCLUDE)
+FLAGS = -Wall -Wextra -Werror -std=c++98 $(INCLUDE)
 # ==========================================================================================
 
 # OBJS =====================================================================================
@@ -48,8 +48,7 @@ $(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp $(INCS_DIR)
 	@clang++ $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	# @echo "y" | rm -r ~/Library/Caches/*; rm ~/.zcompdump*; brew cleanup
-	@clang++ -g -fsanitize=address $(FLAGS) -o $(NAME) $(OBJS)
+	@clang++ $(FLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
@@ -68,7 +67,7 @@ re: fclean all
 # SUP ======================================================================================
 
 explicit:  $(EXPLICIT_OBJS)
-	@clang++ -g -fsanitize=address $(FLAGS) -o $(NAME) $(EXPLICIT_OBJS)
+	@clang++ $(FLAGS) -o $(NAME) $(EXPLICIT_OBJS)
 	
 run:
 	./$(NAME)
