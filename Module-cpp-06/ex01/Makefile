@@ -8,8 +8,14 @@ SRCS_DIR = srcs/
 SRCS_LINUX =	main.cpp		\
 				serializer_linux.cpp
 
+SRCS_MAC = main.cpp \
+		   serializer_mac.cpp
+
 EXPLICIT_SRCS_LINUX =	main.cpp		\
 						explicit_serializer_linux.cpp
+
+EXPLICIT_SRCS_MAC = main.cpp \
+					explicit_serializer_mac.cpp
 # ==========================================================================================
 
 # INCLUDES =================================================================================
@@ -31,9 +37,14 @@ OBJS_DIR 	= 	objs/
 OBJ 		= 	$(SRCS_LINUX:.cpp=.o)
 OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
 
+OBJ_MAC		=	$(SRCS_MAC:.cpp=.o)
+OBJS_MAC	=	$(addprefix $(OBJS_DIR), $(OBJ_MAC))
+
 EXPLICIT_OBJ 		= 	$(EXPLICIT_SRCS_LINUX:.cpp=.o)
 EXPLICIT_OBJS 		= 	$(addprefix $(OBJS_DIR), $(EXPLICIT_OBJ))
 
+EXPLICIT_OBJ_MAC	=	$(EXPLICIT_SRCS_MAC:.cpp=.o)
+EXPLICIT_OBJS_MAC	=	$(addprefix $(OBJS_DIR), $(EXPLICIT_OBJ_MAC))
 # ==========================================================================================
 
 # COLORS ===================================================================================
@@ -66,9 +77,15 @@ re: fclean all
 
 # SUP ======================================================================================
 
+mac: $(OBJS_MAC)
+	@clang++ $(FLAGS) -o $(NAME) $(OBJS_MAC)
+
 explicit_linux:  $(EXPLICIT_OBJS)
 	@clang++ $(FLAGS) -o $(NAME) $(EXPLICIT_OBJS)
-	
+
+explicit_mac: $(EXPLICIT_OBJS_MAC)
+	@clang++ $(FLAGS) -o $(NAME) $(EXPLICIT_OBJS_MAC)
+
 run:
 	./$(NAME)
 # ==========================================================================================
