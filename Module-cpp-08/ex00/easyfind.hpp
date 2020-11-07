@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/31 11:18:21 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/31 12:45:24 by excalibur        ###   ########.fr       */
+/*   Created: 2020/11/07 23:41:16 by rchallie          #+#    #+#             */
+/*   Updated: 2020/11/07 23:47:24 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ class NotFound : public std::exception
  * in the container.
  */
 template < template < typename , typename> class T>
-void    easyfind(T<int, std::allocator<int>> const &t, int n)
+int    easyfind(T<int, std::allocator<int>> const &t, int n)
 {   
     typename T<int, std::allocator<int>>::const_iterator it = t.begin();
     for (; it != t.end() && *it != n; it++);
     if (*it == n)
-        std::cout << *it << std::endl;
+        return (*it);
     else
         throw NotFound();
 }

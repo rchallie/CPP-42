@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/30 14:35:01 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/30 15:35:37 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/11/07 00:12:21 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ int main()
     std::cout << std::endl;
     Array<int> intassign = j;
     std::cout << "Int array content : " << std::endl;
+    for (int i = 0; i < j.size(); i++)
+        std::cout << "intassign[" << i << "] = " << intassign[i] << std::endl;
+
+    std::cout << std::endl;
+    std::cout << "Modify value (previous + 1): " << std::endl;
+    for (int i = 0; i < j.size(); i++)
+        if (i != 0)
+            intassign[i] = intassign[i - 1] + 1;
     for (int i = 0; i < j.size(); i++)
         std::cout << "intassign[" << i << "] = " << intassign[i] << std::endl;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 15:10:22 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/31 17:46:32 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/11/08 00:10:41 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,28 @@ int main()
     try
     {
         std::cout << sp_empty.longestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    Span sp_long_long = Span(12000);
+    for (int i = 0; i < 12000; i++)
+        sp_long_long.addNumber(i * 2);
+
+    try
+    {
+        std::cout << sp_long_long.longestSpan() << std::endl;
+    }
+        catch(const std::exception& e)
+    {
+        std::cerr << "Error : " << e.what() <<  std::endl;
+    }
+
+    try
+    {
+        std::cout << sp_long_long.shortestSpan() << std::endl;
     }
         catch(const std::exception& e)
     {

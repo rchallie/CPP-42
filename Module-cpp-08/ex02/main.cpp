@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 11:27:23 by excalibur         #+#    #+#             */
-/*   Updated: 2020/04/01 19:10:30 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/11/08 00:18:02 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main(){
     
     std::stack<int> s(mstack);
 
-    std::cout << "LIST" << std::endl;
+    std::cout << "\nLIST" << std::endl;
 
 
     std::list<int>    list;

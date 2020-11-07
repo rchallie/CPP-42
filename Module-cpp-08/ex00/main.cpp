@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 11:29:31 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/31 12:39:07 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/11/07 23:48:48 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "easyfind.hpp"
 # include <vector>
 # include <list>
+
 
 int main()
 {
@@ -29,9 +30,11 @@ int main()
     p.push_back(785);
     p.push_back(156);
 
-    // easyfind(v, 10000);
+    std::cout << "Search 0 : " << easyfind(v, 0) << std::endl;
+
     try
     {
+        std::cout << "Search 10000 : ";
         easyfind(v, 10000);
     }
     catch (std::exception & e)
@@ -39,5 +42,5 @@ int main()
         std::cout << "Error : " << e.what() << std::endl;
     }
 
-    easyfind(p, -895);
+    std::cout << "Search -895 : " << easyfind(p, -895) << std::endl;
 }

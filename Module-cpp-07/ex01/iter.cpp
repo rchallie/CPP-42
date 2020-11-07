@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: excalibur <excalibur@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/30 11:14:29 by excalibur         #+#    #+#             */
-/*   Updated: 2020/03/30 14:29:53 by excalibur        ###   ########.fr       */
+/*   Updated: 2020/11/06 23:59:26 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ int main()
     std::string strs[] = { "Salut", "Comment" , "Tu", "Vas", "?"};
 
     std::cout << "Print integer array : " << std::endl;
-    iter<const int>(plop, 10, print);
+    ::iter<const int>(plop, 10, print);
     std::cout << std::endl;
-    iter<int>(plop, 10, addOne);
+
+    ::iter<int>(plop, 10, addOne);
     std::cout << "Print integer array after addOne: " << std::endl;
-    iter<const int>(plop, 10, print);
+    ::iter<const int>(plop, 10, print);
     std::cout << std::endl;
+    
     std::cout << "Print std::string array :" << std::endl;
-    iter<const std::string>(strs, 5, print);
+    ::iter<const std::string>(strs, 5, print);
 }
