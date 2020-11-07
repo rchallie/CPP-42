@@ -24,8 +24,8 @@ Module CPP (42cursus) 2019-2020
   - Actual Status : Finished
   - Result        : 100%
 - Module 07 :
-  - Actual Status : In progress
-  - Result        : NULL
+  - Actual Status : Finished
+  - Result        : 100%
 - Module 08 :
   - Actual Status : In progress
   - Result        : NULL
