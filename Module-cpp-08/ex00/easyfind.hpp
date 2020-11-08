@@ -6,11 +6,12 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 23:41:16 by rchallie          #+#    #+#             */
-/*   Updated: 2020/11/07 23:47:24 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/11/08 15:58:29 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
+# include <algorithm>
 
 /**
  * @brief Exception NotFound.
@@ -31,12 +32,12 @@ class NotFound : public std::exception
  * in the container.
  */
 template < template < typename , typename> class T>
-int    easyfind(T<int, std::allocator<int>> const &t, int n)
+typename T<int, std::allocator<int> >::iterator
+    easyfind(T<int, std::allocator<int> > &array, int n)
 {   
-    typename T<int, std::allocator<int>>::const_iterator it = t.begin();
-    for (; it != t.end() && *it != n; it++);
-    if (*it == n)
-        return (*it);
+    typename T<int, std::allocator<int> >::iterator itpos;
+    if ((itpos = std::find(array.begin(), array.end(), n)) != array.end())
+        return (itpos);
     else
         throw NotFound();
 }

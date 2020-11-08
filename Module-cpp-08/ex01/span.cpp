@@ -69,10 +69,12 @@ void        Span::addNumber(int n)
 		this->_values.push_back(n);
 	else
 		throw Span::Full();
+	std::sort(this->_values.begin(), this->_values.end());
 }
 
 /**
  * @brief get the shortest span in "Span".
+ * (Overkilled, not need min and min_one_more)
  * 
  * @throw if "Span" have not enough value to do
  * a span.
@@ -84,39 +86,17 @@ long		Span::shortestSpan(void)
 	if(this->_values.size() <= 1)
 		throw Span::CantSpan();
 
-	std::vector<int>::iterator itlong = this->_values.begin();
-	std::vector<int>::iterator itshort;
+	std::vector<int>::iterator min = std::min_element(this->_values.begin(), this->_values.end());
+	std::vector<int>::iterator min_one_more = min + 1;
 
-	int		final_inited = 0;
+	long rtn = (long)(*min) - (long)(*min_one_more);
 
-	long	final_shortest;
-	long	tmp_shortest;
-
-	for (; itlong != this->_values.end(); itlong++)
-	{
-		itshort = this->_values.begin();
-		for(; itshort != this->_values.end(); itshort++)
-		{
-			if (itshort != itlong)
-			{
-				tmp_shortest = (long)*itlong - (long)*itshort;
-				if (tmp_shortest < 0)
-					tmp_shortest *= -1;
-				if (final_inited == 0)
-				{
-					final_inited = 1;
-					final_shortest = tmp_shortest;
-				}
-				else if (tmp_shortest < final_shortest)
-					final_shortest = tmp_shortest;
-			}
-		}
-	}
-	return (final_shortest);
+	return ((rtn < 0) ? (rtn * -1) : rtn);
 }
 
 /**
  * @brief get the longest span in "Span".
+ * (Overkilled, not need min and max)
  * 
  * @throw if "Span" have not enough value to do
  * a span.
@@ -128,28 +108,15 @@ long		Span::longestSpan(void)
 	if(this->_values.size() <= 1)
 		throw Span::CantSpan();
 	
-	std::vector<int>::iterator itlong = this->_values.begin();
-	std::vector<int>::iterator itshort;
+	std::vector<int>::iterator min;
+	std::vector<int>::iterator max;
 
-	long	final_longest = 0;
-	long	tmp_longest;
+	min = std::min_element(this->_values.begin(), this->_values.end());
+	max = std::max_element(this->_values.begin(), this->_values.end());
 
-	for (; itlong != this->_values.end(); itlong++)
-	{
-		itshort = this->_values.begin();
-		for(; itshort != this->_values.end(); itshort++)
-		{
-			if (itshort != itlong)
-			{
-				tmp_longest = (long)*itlong - (long)*itshort;
-				if (tmp_longest < 0)
-					tmp_longest *= -1;
-				if (tmp_longest > final_longest)
-					final_longest = tmp_longest;
-			}
-		}
-	}
-	return (final_longest);
+	long rtn = (long)(*min) - (long)(*max);
+
+	return ((rtn < 0) ? (rtn * -1) : rtn);
 }
 
 // =============================================================================

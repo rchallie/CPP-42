@@ -16,6 +16,7 @@
 // LIBS ========================================================================
 # include <stack>
 # include <list>
+# include <algorithm>
 // =============================================================================
 
 // PROTOTYPES ==================================================================
@@ -30,10 +31,17 @@ class MutantStack : public std::stack<T>
 {
     public:
         // Coplien
-        MutantStack() {};
-        MutantStack(const MutantStack&) {};
+        MutantStack() : std::stack<T>() {};
+        MutantStack(const MutantStack& copy) : std::stack<T>(copy){};
         virtual ~MutantStack() {};
-        MutantStack &operator=(const MutantStack&) {};
+
+        MutantStack &operator=(const MutantStack &op)
+        {
+            if (this == &op)
+                return (*this);
+            std::stack<T>::operator=(op);
+            return (*this);
+        };
 	
         // Getter - Setter
 
