@@ -30,6 +30,12 @@ template< typename T >
 class MutantStack : public std::stack<T>
 {
     public:
+
+        typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+        typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+        typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+
         // Coplien
         MutantStack() : std::stack<T>() {};
         MutantStack(const MutantStack& copy) : std::stack<T>(copy){};
@@ -46,20 +52,6 @@ class MutantStack : public std::stack<T>
         // Getter - Setter
 
         // Additionnal
-        class iterator
-        {
-            private:
-                T*      _pointer;
-
-            public :
-                iterator(T* pointer) : _pointer(pointer) {};
-                iterator operator++() { _pointer++; return (*this); }
-                iterator operator--() { _pointer--; return (*this); }
-                T&      operator*() { return (*_pointer); }
-                T*      operator->() { return (_pointer); }
-                bool    operator==(const iterator& op) { return (_pointer == op._pointer); }
-                bool    operator!=(const iterator& op) { return (_pointer != op._pointer); }
-        };
 
         /**
          * @brief Get an iterator on the ground of the
@@ -67,14 +59,59 @@ class MutantStack : public std::stack<T>
          * 
          * @return the iterator.
          */
-        iterator begin() { return (iterator(&this->top() - (this->size()) + 1)); }
+        iterator begin() { return (std::stack<T>::c.begin()); }
+
+        /**
+         * @brief Get a const iterator on the ground of the
+         * "std::stack".
+         * 
+         * @return the iterator.
+         */
+        const_iterator begin() const { return (std::stack<T>::c.begin()); }
         
         /**
          * @brief Get an iterator on the top of the "std::stack".
          * 
          * @return the iterator.
          */
-        iterator end() { return (iterator(&this->top() + 1)); } 
+        iterator end() { return (std::stack<T>::c.end()); }
+
+        /**
+         * @brief Get a cnst iterator on the top of the "std::stack".
+         * 
+         * @return the iterator.
+         */
+        const_iterator end() const { return (std::stack<T>::c.end()); }
+
+                /**
+         * @brief Get an iterator on the ground of the
+         * "std::stack".
+         * 
+         * @return the iterator.
+         */
+        reverse_iterator rbegin() { return (std::stack<T>::c.rbegin()); }
+
+        /**
+         * @brief Get a const reverse_iterator on the ground of the
+         * "std::stack".
+         * 
+         * @return the reverse_iterator.
+         */
+        const_reverse_iterator rbegin() const { return (std::stack<T>::c.rbegin()); }
+        
+        /**
+         * @brief Get an reverse_iterator on the top of the "std::stack".
+         * 
+         * @return the reverse_iterator.
+         */
+        reverse_iterator rend() { return (std::stack<T>::c.rend()); }
+
+        /**
+         * @brief Get a cnst reverse_iterator on the top of the "std::stack".
+         * 
+         * @return the reverse_iterator.
+         */
+        const_reverse_iterator rend() const { return (std::stack<T>::c.rend()); } 
 
         // Exceptions
 };

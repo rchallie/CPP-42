@@ -86,12 +86,13 @@ long		Span::shortestSpan(void)
 	if(this->_values.size() <= 1)
 		throw Span::CantSpan();
 
-	std::vector<int>::iterator min = std::min_element(this->_values.begin(), this->_values.end());
-	std::vector<int>::iterator min_one_more = min + 1;
+	long shortest = (long)this->_values[1] - (long)this->_values[0];
+	size_t value_size = this->_values.size();
 
-	long rtn = (long)(*min) - (long)(*min_one_more);
-
-	return ((rtn < 0) ? (rtn * -1) : rtn);
+	for (size_t i = 0; i < value_size - 1; i++)
+		if ((long)this->_values[i + 1] - (long)this->_values[i] < shortest)
+			shortest = (long)this->_values[i + 1] - (long)this->_values[i];
+	return ((unsigned long)shortest);
 }
 
 /**

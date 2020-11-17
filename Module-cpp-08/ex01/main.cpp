@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 15:10:22 by excalibur         #+#    #+#             */
-/*   Updated: 2020/11/08 00:10:41 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/11/17 16:46:27 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,10 @@ int main()
         std::cerr << "Error : " << e.what() <<  std::endl;
     }
 
-    Span sp_long_long = Span(12000);
-    for (int i = 0; i < 12000; i++)
-        sp_long_long.addNumber(i * 2);
+    Span sp_long_long = Span(50000);
+    std::vector<int> range(50000, 10);
+    range[3256] = 40;
+    sp_long_long.addNumber(range.begin(), range.end());
 
     try
     {

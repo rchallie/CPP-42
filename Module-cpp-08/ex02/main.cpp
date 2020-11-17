@@ -6,7 +6,7 @@
 /*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 11:27:23 by excalibur         #+#    #+#             */
-/*   Updated: 2020/11/08 00:18:02 by rchallie         ###   ########.fr       */
+/*   Updated: 2020/11/17 16:47:04 by rchallie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,33 @@ int main(){
     }
     
     std::list<int> s2(list);
+
+    std::cout << "\nMUTANTSTACK reverse" << std::endl;
+
+    MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+    MutantStack<int>::reverse_iterator rite = mstack.rend();
+
+    ++rit;
+    --rit;
+
+    while(rit != rite){
+        std::cout << *rit << std::endl;
+        ++rit;
+    }
+
+    std::cout << "\nLIST reverse" << std::endl;
+    
+    std::list<int>::reverse_iterator ritlist = list.rbegin();
+    std::list<int>::reverse_iterator ritliste = list.rend();
+
+    ++ritlist;
+    --ritlist;
+
+    while(ritlist != ritliste){
+        std::cout << *ritlist << std::endl;
+        ++ritlist;
+    }
+    
 
     return 0;
 }
